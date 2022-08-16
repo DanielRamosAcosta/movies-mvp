@@ -5,8 +5,8 @@
 //  Created by Daniel Ramos on 12/8/22.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 protocol MovieRepository {
     func getMovies() -> AnyPublisher<[Movie], Error>
@@ -15,7 +15,7 @@ protocol MovieRepository {
 class MovieRepositoryApi: MovieRepository {
     func getMovies() -> AnyPublisher<[Movie], Error> {
         let url = URL(string: "https://jsonplaceholder.typicode.com/users")
-        
+
         guard let urll = url else {
             return Empty(completeImmediately: true).eraseToAnyPublisher()
         }
@@ -23,11 +23,12 @@ class MovieRepositoryApi: MovieRepository {
         print("before")
 
         return URLSession.shared.dataTaskPublisher(for: urll)
-            .tryMap{ element -> Data in
+            .tryMap { element -> Data in
                 guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                          throw URLError(.badServerResponse)
-                      }
+                      httpResponse.statusCode == 200
+                else {
+                    throw URLError(.badServerResponse)
+                }
                 return element.data
             }
             .decode(type: [Movie].self, decoder: JSONDecoder())
@@ -41,20 +42,19 @@ enum MovieRepositoryError: Error {
 
 class MovieRepositoryFake: MovieRepository {
     private let simulateErrors: Bool
-    
+
     init(simulateErrors: Bool = false) {
         self.simulateErrors = simulateErrors
     }
-    
+
     func getMovies() -> AnyPublisher<[Movie], Error> {
-        if(simulateErrors) {
+        if simulateErrors {
             print("simulating an error")
             return Fail(error: MovieRepositoryError.apiNotReachable).eraseToAnyPublisher()
         } else {
             print("not simulating an error")
         }
-        
-        
+
         let movies: [Movie] = [
             Movie(name: "Day Shift"),
             Movie(name: "Prey"),
@@ -65,7 +65,7 @@ class MovieRepositoryFake: MovieRepository {
             Movie(name: "Better Call Saul"),
             Movie(name: "Sandman"),
         ]
-        
+
         return Just(movies)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
