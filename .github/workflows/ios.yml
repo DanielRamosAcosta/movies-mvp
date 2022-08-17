@@ -19,6 +19,7 @@ jobs:
           xcode-version: "13.2"
       - name: Set Default Scheme
         run: |
+          rm Cineni.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
           xcode_version=$(xcodebuild -version)
           echo Using XCode version: $xcode_version
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
