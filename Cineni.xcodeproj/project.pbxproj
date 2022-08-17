@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A4983F9528ABB4FD004731CC /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983F9428ABB4FD004731CC /* HomePresenterTests.swift */; };
 		A4983FA328ABDFC9004731CC /* HomeViewFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983FA228ABDFC9004731CC /* HomeViewFake.swift */; };
-		A4DE062628ACD92B00767407 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE062528ACD92B00767407 /* Quick */; };
+		A4DE063228ACE32300767407 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063128ACE32300767407 /* Quick */; };
 		A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */; };
 		A4F60B2228A6A2CC00E4159B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */; };
 		A4F60B2428A6A2CC00E4159B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2328A6A2CC00E4159B /* HomeViewController.swift */; };
@@ -89,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4DE062628ACD92B00767407 /* Quick in Frameworks */,
+				A4DE063228ACE32300767407 /* Quick in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +225,8 @@
 			dependencies = (
 			);
 			name = Cineni;
+			packageProductDependencies = (
+			);
 			productName = Cineni;
 			productReference = A4F60B1C28A6A2CC00E4159B /* Cineni.app */;
 			productType = "com.apple.product-type.application";
@@ -244,7 +246,7 @@
 			);
 			name = CineniTests;
 			packageProductDependencies = (
-				A4DE062528ACD92B00767407 /* Quick */,
+				A4DE063128ACE32300767407 /* Quick */,
 			);
 			productName = CineniTests;
 			productReference = A4F60B3228A6A2CE00E4159B /* CineniTests.xctest */;
@@ -301,7 +303,7 @@
 			);
 			mainGroup = A4F60B1328A6A2CC00E4159B;
 			packageReferences = (
-				A4DE062428ACD92B00767407 /* XCRemoteSwiftPackageReference "Quick" */,
+				A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = A4F60B1D28A6A2CC00E4159B /* Products */;
 			projectDirPath = "";
@@ -700,20 +702,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A4DE062428ACD92B00767407 /* XCRemoteSwiftPackageReference "Quick" */ = {
+		A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 5.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A4DE062528ACD92B00767407 /* Quick */ = {
+		A4DE063128ACE32300767407 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A4DE062428ACD92B00767407 /* XCRemoteSwiftPackageReference "Quick" */;
+			package = A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
