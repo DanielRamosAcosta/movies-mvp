@@ -10,6 +10,7 @@
 		A4983F9528ABB4FD004731CC /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983F9428ABB4FD004731CC /* HomePresenterTests.swift */; };
 		A4983FA328ABDFC9004731CC /* HomeViewFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983FA228ABDFC9004731CC /* HomeViewFake.swift */; };
 		A4DE063228ACE32300767407 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063128ACE32300767407 /* Quick */; };
+		A4DE063528ACE48B00767407 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063428ACE48B00767407 /* Nimble */; };
 		A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */; };
 		A4F60B2228A6A2CC00E4159B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */; };
 		A4F60B2428A6A2CC00E4159B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2328A6A2CC00E4159B /* HomeViewController.swift */; };
@@ -90,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4DE063228ACE32300767407 /* Quick in Frameworks */,
+				A4DE063528ACE48B00767407 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +249,7 @@
 			name = CineniTests;
 			packageProductDependencies = (
 				A4DE063128ACE32300767407 /* Quick */,
+				A4DE063428ACE48B00767407 /* Nimble */,
 			);
 			productName = CineniTests;
 			productReference = A4F60B3228A6A2CE00E4159B /* CineniTests.xctest */;
@@ -304,6 +307,7 @@
 			mainGroup = A4F60B1328A6A2CC00E4159B;
 			packageReferences = (
 				A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */,
+				A4DE063328ACE48B00767407 /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = A4F60B1D28A6A2CC00E4159B /* Products */;
 			projectDirPath = "";
@@ -710,6 +714,14 @@
 				version = 5.0.1;
 			};
 		};
+		A4DE063328ACE48B00767407 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -717,6 +729,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
+		};
+		A4DE063428ACE48B00767407 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4DE063328ACE48B00767407 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
