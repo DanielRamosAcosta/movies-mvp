@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A4983F9528ABB4FD004731CC /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983F9428ABB4FD004731CC /* HomePresenterTests.swift */; };
-		A4983F9D28ABDF73004731CC /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4983F9B28ABDF73004731CC /* Quick.xcframework */; };
-		A4983F9E28ABDF73004731CC /* Quick.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4983F9B28ABDF73004731CC /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A4983F9F28ABDF73004731CC /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4983F9C28ABDF73004731CC /* Nimble.xcframework */; };
-		A4983FA028ABDF73004731CC /* Nimble.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4983F9C28ABDF73004731CC /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4983FA328ABDFC9004731CC /* HomeViewFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983FA228ABDFC9004731CC /* HomeViewFake.swift */; };
+		A4DE062628ACD92B00767407 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE062528ACD92B00767407 /* Quick */; };
 		A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */; };
 		A4F60B2228A6A2CC00E4159B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */; };
 		A4F60B2428A6A2CC00E4159B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2328A6A2CC00E4159B /* HomeViewController.swift */; };
@@ -52,8 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A4983FA028ABDF73004731CC /* Nimble.xcframework in Embed Frameworks */,
-				A4983F9E28ABDF73004731CC /* Quick.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,8 +57,6 @@
 
 /* Begin PBXFileReference section */
 		A4983F9428ABB4FD004731CC /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
-		A4983F9B28ABDF73004731CC /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
-		A4983F9C28ABDF73004731CC /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
 		A4983FA228ABDFC9004731CC /* HomeViewFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewFake.swift; sourceTree = "<group>"; };
 		A4F60B1C28A6A2CC00E4159B /* Cineni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cineni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,8 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4983F9F28ABDF73004731CC /* Nimble.xcframework in Frameworks */,
-				A4983F9D28ABDF73004731CC /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DE062628ACD92B00767407 /* Quick in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,15 +103,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A4983F9A28ABDF73004731CC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A4983F9C28ABDF73004731CC /* Nimble.xcframework */,
-				A4983F9B28ABDF73004731CC /* Quick.xcframework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A4F60B1328A6A2CC00E4159B = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +110,6 @@
 				A4F60B3528A6A2CE00E4159B /* CineniTests */,
 				A4F60B3F28A6A2CE00E4159B /* CineniUITests */,
 				A4F60B1D28A6A2CC00E4159B /* Products */,
-				A4983F9A28ABDF73004731CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,6 +243,9 @@
 				A4F60B3428A6A2CE00E4159B /* PBXTargetDependency */,
 			);
 			name = CineniTests;
+			packageProductDependencies = (
+				A4DE062528ACD92B00767407 /* Quick */,
+			);
 			productName = CineniTests;
 			productReference = A4F60B3228A6A2CE00E4159B /* CineniTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -315,6 +300,9 @@
 				Base,
 			);
 			mainGroup = A4F60B1328A6A2CC00E4159B;
+			packageReferences = (
+				A4DE062428ACD92B00767407 /* XCRemoteSwiftPackageReference "Quick" */,
+			);
 			productRefGroup = A4F60B1D28A6A2CC00E4159B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -710,6 +698,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A4DE062428ACD92B00767407 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A4DE062528ACD92B00767407 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4DE062428ACD92B00767407 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4F60B1428A6A2CC00E4159B /* Project object */;
 }

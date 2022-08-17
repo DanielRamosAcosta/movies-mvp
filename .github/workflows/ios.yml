@@ -20,10 +20,6 @@ jobs:
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
           echo Using default scheme: $default
-      - name: Install dependencies
-        uses: devbotsxyz/carthage-bootstrap@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         env:
           scheme: ${{ 'default' }}
