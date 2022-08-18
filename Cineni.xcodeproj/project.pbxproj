@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A45DCD3D28AE503D00E2BE28 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DCD3C28AE503D00E2BE28 /* CollectionViewTableViewCell.swift */; };
+		A45DCD3F28AE55B200E2BE28 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45DCD3E28AE55B200E2BE28 /* HeroHeaderUIView.swift */; };
+		A47421D328AE462800441BB0 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = A47421D228AE462800441BB0 /* Swinject */; };
+		A47421D728AE47F000441BB0 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47421D628AE47EF00441BB0 /* MainTabBarViewController.swift */; };
+		A47421D928AE487F00441BB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47421D828AE487F00441BB0 /* HomeViewController.swift */; };
+		A47421DB28AE489A00441BB0 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47421DA28AE489A00441BB0 /* UpcomingViewController.swift */; };
+		A47421DD28AE48B800441BB0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47421DC28AE48B800441BB0 /* SearchViewController.swift */; };
+		A47421DF28AE48D200441BB0 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47421DE28AE48D200441BB0 /* DownloadsViewController.swift */; };
 		A4983F9528ABB4FD004731CC /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983F9428ABB4FD004731CC /* HomePresenterTests.swift */; };
 		A4983FA328ABDFC9004731CC /* HomeViewFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983FA228ABDFC9004731CC /* HomeViewFake.swift */; };
 		A4DE063228ACE32300767407 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063128ACE32300767407 /* Quick */; };
 		A4DE063528ACE48B00767407 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063428ACE48B00767407 /* Nimble */; };
 		A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */; };
 		A4F60B2228A6A2CC00E4159B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */; };
-		A4F60B2428A6A2CC00E4159B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2328A6A2CC00E4159B /* HomeViewController.swift */; };
-		A4F60B2728A6A2CC00E4159B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F60B2528A6A2CC00E4159B /* Main.storyboard */; };
 		A4F60B2928A6A2CE00E4159B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F60B2828A6A2CE00E4159B /* Assets.xcassets */; };
 		A4F60B2C28A6A2CE00E4159B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F60B2A28A6A2CE00E4159B /* LaunchScreen.storyboard */; };
 		A4F60B3728A6A2CE00E4159B /* CineniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B3628A6A2CE00E4159B /* CineniTests.swift */; };
@@ -57,13 +63,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A45DCD3C28AE503D00E2BE28 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		A45DCD3E28AE55B200E2BE28 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
+		A47421D628AE47EF00441BB0 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		A47421D828AE487F00441BB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A47421DA28AE489A00441BB0 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
+		A47421DC28AE48B800441BB0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A47421DE28AE48D200441BB0 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		A4983F9428ABB4FD004731CC /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		A4983FA228ABDFC9004731CC /* HomeViewFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewFake.swift; sourceTree = "<group>"; };
 		A4F60B1C28A6A2CC00E4159B /* Cineni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cineni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A4F60B2328A6A2CC00E4159B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		A4F60B2628A6A2CC00E4159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4F60B2828A6A2CE00E4159B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4F60B2B28A6A2CE00E4159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4F60B2D28A6A2CE00E4159B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47421D328AE462800441BB0 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +117,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A45DCD3B28AE502300E2BE28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A45DCD3C28AE503D00E2BE28 /* CollectionViewTableViewCell.swift */,
+				A45DCD3E28AE55B200E2BE28 /* HeroHeaderUIView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A47421D428AE47B100441BB0 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				A47421D528AE47B600441BB0 /* navigation */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		A47421D528AE47B600441BB0 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A47421D628AE47EF00441BB0 /* MainTabBarViewController.swift */,
+				A47421D828AE487F00441BB0 /* HomeViewController.swift */,
+				A47421DA28AE489A00441BB0 /* UpcomingViewController.swift */,
+				A47421DC28AE48B800441BB0 /* SearchViewController.swift */,
+				A47421DE28AE48D200441BB0 /* DownloadsViewController.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
 		A4F60B1328A6A2CC00E4159B = {
 			isa = PBXGroup;
 			children = (
@@ -128,10 +169,11 @@
 		A4F60B1E28A6A2CC00E4159B /* Cineni */ = {
 			isa = PBXGroup;
 			children = (
+				A45DCD3B28AE502300E2BE28 /* Views */,
+				A47421D428AE47B100441BB0 /* services */,
 				A4F60B4F28A6A2D800E4159B /* home */,
 				A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */,
 				A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */,
-				A4F60B2528A6A2CC00E4159B /* Main.storyboard */,
 				A4F60B2828A6A2CE00E4159B /* Assets.xcassets */,
 				A4F60B2A28A6A2CE00E4159B /* LaunchScreen.storyboard */,
 				A4F60B2D28A6A2CE00E4159B /* Info.plist */,
@@ -171,7 +213,6 @@
 		A4F60B5028A6A2E500E4159B /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A4F60B2328A6A2CC00E4159B /* HomeViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -228,6 +269,7 @@
 			);
 			name = Cineni;
 			packageProductDependencies = (
+				A47421D228AE462800441BB0 /* Swinject */,
 			);
 			productName = Cineni;
 			productReference = A4F60B1C28A6A2CC00E4159B /* Cineni.app */;
@@ -308,6 +350,7 @@
 			packageReferences = (
 				A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */,
 				A4DE063328ACE48B00767407 /* XCRemoteSwiftPackageReference "Nimble" */,
+				A47421D128AE462800441BB0 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = A4F60B1D28A6A2CC00E4159B /* Products */;
 			projectDirPath = "";
@@ -327,7 +370,6 @@
 			files = (
 				A4F60B2C28A6A2CE00E4159B /* LaunchScreen.storyboard in Resources */,
 				A4F60B2928A6A2CE00E4159B /* Assets.xcassets in Resources */,
-				A4F60B2728A6A2CC00E4159B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,12 +394,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4F60B2428A6A2CC00E4159B /* HomeViewController.swift in Sources */,
+				A47421DD28AE48B800441BB0 /* SearchViewController.swift in Sources */,
+				A47421DF28AE48D200441BB0 /* DownloadsViewController.swift in Sources */,
+				A45DCD3D28AE503D00E2BE28 /* CollectionViewTableViewCell.swift in Sources */,
+				A47421D728AE47F000441BB0 /* MainTabBarViewController.swift in Sources */,
 				A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */,
 				A4F60B2228A6A2CC00E4159B /* SceneDelegate.swift in Sources */,
 				A4F60B5428A6A31E00E4159B /* HomePresenter.swift in Sources */,
+				A45DCD3F28AE55B200E2BE28 /* HeroHeaderUIView.swift in Sources */,
+				A47421D928AE487F00441BB0 /* HomeViewController.swift in Sources */,
 				A4F60B5C28A6B47B00E4159B /* MovieRepository.swift in Sources */,
 				A4F60B5628A6A34A00E4159B /* Movie.swift in Sources */,
+				A47421DB28AE489A00441BB0 /* UpcomingViewController.swift in Sources */,
 				A4F60B5928A6B44D00E4159B /* GetMovieList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,14 +445,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A4F60B2528A6A2CC00E4159B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4F60B2628A6A2CC00E4159B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A4F60B2A28A6A2CE00E4159B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -544,7 +584,6 @@
 				INFOPLIST_FILE = Cineni/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -572,7 +611,6 @@
 				INFOPLIST_FILE = Cineni/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -706,6 +744,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A47421D128AE462800441BB0 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.8.2;
+			};
+		};
 		A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick";
@@ -725,6 +771,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A47421D228AE462800441BB0 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A47421D128AE462800441BB0 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
 		A4DE063128ACE32300767407 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A4DE063028ACE32300767407 /* XCRemoteSwiftPackageReference "Quick" */;
