@@ -23,6 +23,7 @@ jobs:
 
   build:
     name: Build and Test default scheme using any available iPhone simulator
+    needs: lint
     runs-on: macos-latest
     steps:
       - name: Checkout
