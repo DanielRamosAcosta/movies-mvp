@@ -1,0 +1,4 @@
+# These rules collides with swiftformat
+disabled_rules:
+  - opening_brace
+  - trailing_comma

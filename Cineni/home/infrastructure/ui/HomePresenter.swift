@@ -15,7 +15,9 @@ class HomePresenter {
     private var cancellable: AnyCancellable?
 
     public static func build(_ resolver: Resolver) -> HomePresenter {
-        return HomePresenter(delegate: resolver.resolve(HomeViewDelegate.self)!, homeUseCases: resolver.resolve(HomeUseCases.self)!)
+        let delegate = resolver.resolve(HomeViewDelegate.self)!
+        let homeUseCases = resolver.resolve(HomeUseCases.self)!
+        return HomePresenter(delegate: delegate, homeUseCases: homeUseCases)
     }
 
     init(delegate: HomeViewDelegate?, homeUseCases: HomeUseCases) {

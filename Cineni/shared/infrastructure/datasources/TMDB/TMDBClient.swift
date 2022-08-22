@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 struct Constants {
-    static let API_KEY = "486d343f9b5ccc40cd5650b69fc70c5e"
+    static let apiKey = "486d343f9b5ccc40cd5650b69fc70c5e"
     static let baseUrl = "https://api.themoviedb.org"
 }
 
@@ -20,7 +20,7 @@ class TMDBClient {
         components.host = "api.themoviedb.org"
         components.path = "/3/trending/all/day"
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: Constants.API_KEY),
+            URLQueryItem(name: "api_key", value: Constants.apiKey),
         ]
         return components
     }
