@@ -17,6 +17,13 @@ jobs:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: "13.2"
+      - name: Install SwiftFormat
+        uses: Cyberbeni/install-swift-tool@v2
+        with:
+          url: https://github.com/nicklockwood/SwiftFormat
+          version: "0.49.17"
+      - name: Lint
+        run: swiftformat --lint .
       - name: Set Default Scheme
         run: |
           rm Cineni.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
