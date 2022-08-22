@@ -7,10 +7,23 @@ on:
     branches: ["main"]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install SwiftFormat
+        uses: Cyberbeni/install-swift-tool@v2
+        with:
+          url: https://github.com/nicklockwood/SwiftFormat
+          version: "*" # https://devhints.io/semver
+      - name: Run SwiftFormat
+        run: swiftformat --lint .
+      - name: Run SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+
   build:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,15 +31,6 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: "13.2"
-      - name: Install SwiftFormat
-        uses: Cyberbeni/install-swift-tool@v2
-        with:
-          url: https://github.com/nicklockwood/SwiftFormat
-          version: "0.49.17"
-      - name: Check code format
-        run: swiftformat --lint .
-      - name: Lint code
-        uses: norio-nomura/action-swiftlint@3.2.1
       - name: Set Default Scheme
         run: |
           rm Cineni.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
