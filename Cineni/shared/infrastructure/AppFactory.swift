@@ -17,12 +17,12 @@ class AppFactory {
         container
             .register(HomeViewController.self, factory: HomeViewController.build)
             .initCompleted(HomeViewController.initCompleted)
-        container.register(HomeViewDelegate.self) {r in r.resolve(HomeViewController.self)!}
+        container.register(HomeViewDelegate.self) { r in r.resolve(HomeViewController.self)! }
         container.register(HomePresenter.self, factory: HomePresenter.build)
 
         return container
     }
-    
+
     public static func overrideWithTests(_ container: Container) {
         container.register(MovieRepository.self, factory: MovieRepositoryFake.build)
     }

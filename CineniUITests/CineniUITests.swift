@@ -16,7 +16,7 @@ class CineniUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["-UITests"]
         app.launch()
-        
+
         print(app.images["Vengeance"].tap())
     }
 }

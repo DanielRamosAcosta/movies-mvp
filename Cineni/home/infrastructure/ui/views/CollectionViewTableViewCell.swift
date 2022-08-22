@@ -9,7 +9,7 @@ import UIKit
 
 class CollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CollectionViewTableViewCell"
-    
+
     var movies: [MovieDomain] = []
 
     private let collectionView: UICollectionView = {
@@ -39,10 +39,10 @@ class CollectionViewTableViewCell: UITableViewCell {
         super.layoutSubviews()
         collectionView.frame = contentView.bounds
     }
-    
+
     public func configure(with movies: [MovieDomain]) {
         self.movies = movies
-        self.collectionView.reloadData()
+        collectionView.reloadData()
         print("RELOADING DATA")
     }
 }
@@ -55,7 +55,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         cell.backgroundColor = .green
 
         cell.configure(with: movies[indexPath.row])
- 
+
         return cell
     }
 

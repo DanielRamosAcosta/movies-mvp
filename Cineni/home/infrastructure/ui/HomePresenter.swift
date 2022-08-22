@@ -5,15 +5,15 @@
 //  Created by Daniel Ramos on 22/8/22.
 //
 
-import Foundation
 import Combine
+import Foundation
 import Swinject
 
 class HomePresenter {
     private weak var homeView: HomeViewDelegate?
     let homeUseCases: HomeUseCases
     private var cancellable: AnyCancellable?
-    
+
     public static func build(_ resolver: Resolver) -> HomePresenter {
         return HomePresenter(delegate: resolver.resolve(HomeViewDelegate.self)!, homeUseCases: resolver.resolve(HomeUseCases.self)!)
     }

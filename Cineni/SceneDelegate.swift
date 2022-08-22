@@ -5,8 +5,8 @@
 //  Created by Daniel Ramos on 12/8/22.
 //
 
-import UIKit
 import Swinject
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -19,10 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = MainTabBarViewController(createContainer())
         window?.makeKeyAndVisible()
     }
-    
+
     func createContainer() -> Container {
         let container = AppFactory.create()
-        
+
         if CommandLine.arguments.contains("-UITests") {
             AppFactory.overrideWithTests(container)
         }

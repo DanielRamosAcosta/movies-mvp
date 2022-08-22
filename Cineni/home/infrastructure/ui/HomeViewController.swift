@@ -5,9 +5,9 @@
 //  Created by Daniel Ramos on 18/8/22.
 //
 
-import UIKit
 import Combine
 import Swinject
+import UIKit
 
 enum Sections: Int {
     case TrendingMovies = 0
@@ -26,24 +26,23 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         "Top rated",
     ]
     private var movies: [MovieDomain] = []
-    
-    private var presenter: HomePresenter?
 
+    private var presenter: HomePresenter?
 
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
-    
+
     public func setPresenter(presenter: HomePresenter) {
         self.presenter = presenter
     }
-    
-    public static func build(_ resolver: Resolver) -> HomeViewController {
+
+    public static func build(_: Resolver) -> HomeViewController {
         return HomeViewController()
     }
-    
+
     public static func initCompleted(_ resolver: Resolver, _ homeViewController: HomeViewController) {
         homeViewController.setPresenter(presenter: resolver.resolve(HomePresenter.self)!)
     }
@@ -60,13 +59,13 @@ class HomeViewController: UIViewController, HomeViewDelegate {
 
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
-        
+
         presenter?.getMovies()
     }
-    
+
     func presentTrendingMovies(_ movies: [MovieDomain]) {
         self.movies = movies
-        
+
         DispatchQueue.main.async {
             self.homeFeedTable.reloadData()
         }
@@ -101,13 +100,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
- 
-        if (indexPath.section == 0) {
+
+        if indexPath.section == 0 {
             cell.configure(with: movies)
         } else {
             cell.configure(with: [])
         }
-        
+
         return cell
     }
 
@@ -125,13 +124,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else {return}
+
+    func tableView(_: UITableView, willDisplayHeaderView view: UIView, forSection _: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: 0, y: 0, width: header.bounds.origin.y, height: header.bounds.height)
         header.textLabel?.textColor = .white
