@@ -25,30 +25,31 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         "Upcoming Movies",
         "Top rated",
     ]
-    private var movies: [Movie] = []
+    private var movies: [MovieDomain] = []
     
-    private var cancellable: AnyCancellable?
-    private let homeUseCases: HomeUseCases
     private var presenter: HomePresenter?
-    
-    init(_ homeUseCases: HomeUseCases)   {
-        self.homeUseCases = homeUseCases
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+
 
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
+    
+    public func setPresenter(presenter: HomePresenter) {
+        self.presenter = presenter
+    }
+    
+    public static func build(_ resolver: Resolver) -> HomeViewController {
+        return HomeViewController()
+    }
+    
+    public static func initCompleted(_ resolver: Resolver, _ homeViewController: HomeViewController) {
+        homeViewController.setPresenter(presenter: resolver.resolve(HomePresenter.self)!)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter = HomePresenter(delegate: self, homeUseCases: homeUseCases)
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
 
@@ -61,26 +62,9 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         homeFeedTable.tableHeaderView = headerView
         
         presenter?.getMovies()
-        
-        /*cancellable = homeUseCases.getTrendingMovies()
-            .catch { [weak self] error -> AnyPublisher<[Movie], Never> in
-                print("This is the error \(error)")
-                return Empty(completeImmediately: true).eraseToAnyPublisher()
-            }
-            .sink(
-                receiveValue: { [weak self] movies in
-                    self?.movies = movies
-                    
-                    DispatchQueue.main.async {
-                        self?.homeFeedTable.reloadData()
-                    }
-                    
-                    print(movies)
-                }
-            )*/
     }
     
-    func presentTrendingMovies(_ movies: [Movie]) {
+    func presentTrendingMovies(_ movies: [MovieDomain]) {
         self.movies = movies
         
         DispatchQueue.main.async {

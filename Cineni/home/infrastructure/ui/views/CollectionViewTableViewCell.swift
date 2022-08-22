@@ -10,7 +10,7 @@ import UIKit
 class CollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CollectionViewTableViewCell"
     
-    var movies: [Movie] = []
+    var movies: [MovieDomain] = []
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -40,7 +40,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds
     }
     
-    public func configure(with movies: [Movie]) {
+    public func configure(with movies: [MovieDomain]) {
         self.movies = movies
         self.collectionView.reloadData()
         print("RELOADING DATA")

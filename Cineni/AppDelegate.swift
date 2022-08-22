@@ -20,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         
-        print("Eseeee como vamos")
-        if CommandLine.arguments.contains("-UITests") {
-            print("Running UI test")
-        }
-        
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 

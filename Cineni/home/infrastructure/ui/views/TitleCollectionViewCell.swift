@@ -32,10 +32,10 @@ class TitleCollectionViewCell: UICollectionViewCell {
         posterImageView.frame = contentView.bounds
     }
     
-    public func configure(with movie: Movie) {
-        let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path)")
+    public func configure(with movie: MovieDomain) {
+        let url = URL(string: movie.getThumbnailUrl())
         posterImageView.kf.setImage(with: url)
-        print("accessibilityLabel", movie.title)
-        posterImageView.accessibilityLabel = movie.title
+        print("accessibilityLabel", movie.getTitle())
+        posterImageView.accessibilityLabel = movie.getTitle()
     }
 }

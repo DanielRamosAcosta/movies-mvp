@@ -21,16 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createContainer() -> Container {
-        let container = Container()
-
-        container.register(HomeUseCases.self) { resolver in HomeUseCases(resolver.resolve(MovieRepository.self)!) }
-        container.register(MovieRepository.self) { _ in MovieRepositoryApi() }
-        container.register(HomeViewController.self) {resolver in HomeViewController(resolver.resolve(HomeUseCases.self)!)}
-        container.register(HomeViewDelegate.self) {resolver in resolver.resolve(HomeViewController.self)!}
-        container.register(HomePresenter.self) { resolver in HomePresenter(delegate: resolver.resolve(HomeViewDelegate.self)!, homeUseCases: resolver.resolve(HomeUseCases.self)!) }
+        let container = AppFactory.create()
         
         if CommandLine.arguments.contains("-UITests") {
-            container.register(MovieRepository.self) { _ in MovieRepositoryFake() }
+            AppFactory.overrideWithTests(container)
         }
 
         return container
