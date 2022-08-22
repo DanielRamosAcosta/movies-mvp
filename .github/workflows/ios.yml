@@ -23,8 +23,10 @@ jobs:
         with:
           url: https://github.com/nicklockwood/SwiftFormat
           version: "0.49.17"
-      - name: Lint code format
+      - name: Check code format
         run: swiftformat --lint .
+      - name: Lint code
+        uses: norio-nomura/action-swiftlint@3.2.1
       - name: Set Default Scheme
         run: |
           rm Cineni.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
