@@ -11,7 +11,7 @@ import Swinject
 
 class HomeUseCases {
     private let movieRepository: MovieRepository
-    
+
     public static func build(_ resolver: Resolver) -> HomeUseCases {
         return HomeUseCases(resolver.resolve(MovieRepository.self)!)
     }

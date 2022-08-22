@@ -14,13 +14,13 @@ enum TMDBContent {
 
 extension TMDBContent: Codable {
     private enum CodingKeys: String, CodingKey {
-        case media_type = "media_type"
+        case media_type
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let singleContainer = try decoder.singleValueContainer()
-        
+
         let type = try container.decode(String.self, forKey: .media_type)
         switch type {
         case "movie":
@@ -34,15 +34,15 @@ extension TMDBContent: Codable {
             // or handle this case properly
         }
     }
-        
+
     func encode(to encoder: Encoder) throws {
         var singleContainer = encoder.singleValueContainer()
-        
+
         switch self {
-            case .movie(let movie):
-                try singleContainer.encode(movie)
-            case .tvShow(let tvShow):
-                try singleContainer.encode(tvShow)
+        case let .movie(movie):
+            try singleContainer.encode(movie)
+        case let .tvShow(tvShow):
+            try singleContainer.encode(tvShow)
         }
     }
 }

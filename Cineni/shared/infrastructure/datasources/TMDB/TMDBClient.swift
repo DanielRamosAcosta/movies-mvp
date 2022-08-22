@@ -5,8 +5,8 @@
 //  Created by Daniel Ramos on 22/8/22.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 struct Constants {
     static let API_KEY = "486d343f9b5ccc40cd5650b69fc70c5e"
@@ -20,11 +20,11 @@ class TMDBClient {
         components.host = "api.themoviedb.org"
         components.path = "/3/trending/all/day"
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: Constants.API_KEY)
+            URLQueryItem(name: "api_key", value: Constants.API_KEY),
         ]
         return components
     }
-    
+
     func getTrending() -> AnyPublisher<[TMDBMovie], Error> {
         guard let url = createUrl().url else {
             return Empty(completeImmediately: true).eraseToAnyPublisher()
@@ -42,16 +42,16 @@ class TMDBClient {
             .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
             .map { data -> [TMDBMovie] in
                 print("decoded!")
-                
+
                 let onlyMovies = data.results.compactMap { content -> TMDBMovie? in
                     switch content {
-                    case .movie(let movie):
+                    case let .movie(movie):
                         return movie
                     case .tvShow:
                         return nil
                     }
                 }
-                
+
                 let movies: [TMDBMovie] = onlyMovies
 
                 return movies
