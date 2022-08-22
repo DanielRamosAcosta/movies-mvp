@@ -6,13 +6,25 @@
 //
 
 import UIKit
+import Swinject
 
 class MainTabBarViewController: UITabBarController {
+    let container: Container
+    
+    init(_ container: Container)   {
+        self.container = container
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
-
-        let vc1 = UINavigationController(rootViewController: HomeViewController())
+        
+        let vc1 = UINavigationController(rootViewController: container.resolve(HomeViewController.self)!)
         let vc2 = UINavigationController(rootViewController: UpcomingViewController())
         let vc3 = UINavigationController(rootViewController: SearchViewController())
         let vc4 = UINavigationController(rootViewController: DownloadsViewController())

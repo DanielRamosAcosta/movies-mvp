@@ -6,15 +6,39 @@
 //
 
 import UIKit
+import Combine
+import Swinject
 
-class HomeViewController: UIViewController {
+enum Sections: Int {
+    case TrendingMovies = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case UpcomingMovies = 3
+    case TopRated = 4
+}
+
+class HomeViewController: UIViewController, HomeViewDelegate {
     let sectionTitles = [
         "Trending Movies",
-        "Popular",
         "Trending TV",
+        "Popular",
         "Upcoming Movies",
         "Top rated",
     ]
+    private var movies: [Movie] = []
+    
+    private var cancellable: AnyCancellable?
+    private let homeUseCases: HomeUseCases
+    private var presenter: HomePresenter?
+    
+    init(_ homeUseCases: HomeUseCases)   {
+        self.homeUseCases = homeUseCases
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -24,6 +48,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter = HomePresenter(delegate: self, homeUseCases: homeUseCases)
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
 
@@ -34,6 +59,33 @@ class HomeViewController: UIViewController {
 
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
+        
+        presenter?.getMovies()
+        
+        /*cancellable = homeUseCases.getTrendingMovies()
+            .catch { [weak self] error -> AnyPublisher<[Movie], Never> in
+                print("This is the error \(error)")
+                return Empty(completeImmediately: true).eraseToAnyPublisher()
+            }
+            .sink(
+                receiveValue: { [weak self] movies in
+                    self?.movies = movies
+                    
+                    DispatchQueue.main.async {
+                        self?.homeFeedTable.reloadData()
+                    }
+                    
+                    print(movies)
+                }
+            )*/
+    }
+    
+    func presentTrendingMovies(_ movies: [Movie]) {
+        self.movies = movies
+        
+        DispatchQueue.main.async {
+            self.homeFeedTable.reloadData()
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -65,6 +117,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+ 
+        if (indexPath.section == 0) {
+            cell.configure(with: movies)
+        } else {
+            cell.configure(with: [])
+        }
+        
         return cell
     }
 
@@ -85,5 +144,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {return}
+        header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        header.textLabel?.frame = CGRect(x: 0, y: 0, width: header.bounds.origin.y, height: header.bounds.height)
+        header.textLabel?.textColor = .white
+        header.textLabel?.text = header.textLabel?.text?.capitalized
     }
 }

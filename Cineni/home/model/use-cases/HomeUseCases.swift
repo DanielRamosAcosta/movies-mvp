@@ -8,14 +8,14 @@
 import Combine
 import Foundation
 
-class GetMovieList {
+class HomeUseCases {
     private let movieRepository: MovieRepository
 
     init(_ movieRepository: MovieRepository) {
         self.movieRepository = movieRepository
     }
 
-    public func execute() -> AnyPublisher<[Movie], Error> {
-        return movieRepository.getMovies()
+    public func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
+        return movieRepository.getTrending()
     }
 }
