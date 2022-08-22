@@ -23,7 +23,7 @@ jobs:
         with:
           url: https://github.com/nicklockwood/SwiftFormat
           version: "0.49.17"
-      - name: Lint
+      - name: Lint code format
         run: swiftformat --lint .
       - name: Set Default Scheme
         run: |
