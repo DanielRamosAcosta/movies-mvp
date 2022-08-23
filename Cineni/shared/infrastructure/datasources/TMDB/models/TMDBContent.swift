@@ -14,16 +14,14 @@ enum TMDBContent {
 
 extension TMDBContent: Codable {
     private enum CodingKeys: String, CodingKey {
-        // swiftlint:disable identifier_name
-        case media_type
-        // swiftlint:enable identifier_name
+        case mediaType = "media_type"
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let singleContainer = try decoder.singleValueContainer()
 
-        let type = try container.decode(String.self, forKey: .media_type)
+        let type = try container.decode(String.self, forKey: .mediaType)
         switch type {
         case "movie":
             let movie = try singleContainer.decode(TMDBMovie.self)
@@ -33,7 +31,6 @@ extension TMDBContent: Codable {
             self = .tvShow(tvShow)
         default:
             fatalError("Unknown type of content.")
-            // or handle this case properly
         }
     }
 

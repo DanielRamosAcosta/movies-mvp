@@ -8,21 +8,38 @@
 import Foundation
 
 struct TMDBMovie: Codable {
-    // swiftlint:disable identifier_name
     let adult: Bool
-    let backdrop_path: String
+    let backdropPath: String
     let id: Int
     let title: String
-    let original_language: String
-    let original_title: String
+    let originalLanguage: String
+    let originalTitle: String
     let overview: String
-    let poster_path: String
-    let media_type: String
-    let genre_ids: [Int]
+    let posterPath: String
+    let mediaType: String
+    let genreIds: [Int]
     let popularity: Double
-    let release_date: String
+    let releaseDate: String
     let video: Bool
-    let vote_average: Double
-    let vote_count: Int
-    // swiftlint:enable identifier_name
+    let voteAverage: Double
+    let voteCount: Int
+
+    private enum CodingKeys: String, CodingKey {
+        case
+            adult,
+            backdropPath = "backdrop_path",
+            id,
+            title,
+            originalLanguage = "original_language",
+            originalTitle = "original_title",
+            overview,
+            posterPath = "poster_path",
+            mediaType = "media_type",
+            genreIds = "genre_ids",
+            popularity,
+            releaseDate = "release_date",
+            video,
+            voteAverage = "vote_average",
+            voteCount = "vote_count"
+    }
 }

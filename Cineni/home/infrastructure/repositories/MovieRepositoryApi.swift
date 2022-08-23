@@ -18,7 +18,7 @@ class MovieRepositoryApi: MovieRepository {
 
     func getTrending() -> AnyPublisher<[MovieDomain], Error> {
         return client.getTrending()
-            .map { $0.map { MovieDomain(title: $0.title, posterPath: $0.poster_path) } }
+            .map { $0.map { MovieDomain(title: $0.title, posterPath: $0.posterPath) } }
             .eraseToAnyPublisher()
     }
 }

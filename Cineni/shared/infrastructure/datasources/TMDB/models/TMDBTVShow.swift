@@ -8,21 +8,38 @@
 import Foundation
 
 struct TMDBTVShow: Codable {
-    // swiftlint:disable identifier_name
     let adult: Bool
-    let backdrop_path: String
+    let backdropPath: String
     let id: Int
     let name: String
-    let original_language: String
-    let original_name: String
+    let originalLanguage: String
+    let originalName: String
     let overview: String
-    let poster_path: String
-    let media_type: String
-    let genre_ids: [Int]
+    let posterPath: String
+    let mediaType: String
+    let genreIds: [Int]
     let popularity: Double
-    let first_air_date: String
-    let vote_average: Double
-    let vote_count: Int
-    let origin_country: [String]
-    // swiftlint:enable identifier_name
+    let firstAirDate: String
+    let voteAverage: Double
+    let voteCount: Int
+    let originCountry: [String]
+
+    private enum CodingKeys: String, CodingKey {
+        case
+            adult,
+            backdropPath = "backdrop_path",
+            id,
+            name,
+            originalLanguage = "original_language",
+            originalName = "original_name",
+            overview,
+            posterPath = "poster_path",
+            mediaType = "media_type",
+            genreIds = "genre_ids",
+            popularity,
+            firstAirDate = "first_air_date",
+            voteAverage = "vote_average",
+            voteCount = "vote_count",
+            originCountry = "origin_country"
+    }
 }
