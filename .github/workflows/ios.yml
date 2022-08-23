@@ -7,7 +7,8 @@ on:
     branches: ["main"]
 
 jobs:
-  Lint:
+  lint:
+    name: Lint and check format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
