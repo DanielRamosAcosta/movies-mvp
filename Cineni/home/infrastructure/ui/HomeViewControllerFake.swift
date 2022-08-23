@@ -10,12 +10,12 @@ import Swinject
 
 class HomeViewControllerFake: HomeViewDelegate {
     public var trendingMovies: [Movie] = []
-    
+
     public static func build(_: Resolver) -> HomeViewControllerFake {
         return HomeViewControllerFake()
     }
-    
+
     func presentTrendingMovies(_ movies: [Movie]) {
-        self.trendingMovies = movies
+        trendingMovies = movies
     }
 }

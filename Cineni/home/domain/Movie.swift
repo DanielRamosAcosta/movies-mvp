@@ -8,4 +8,3 @@
 import Foundation
 
 class Movie: MediaElement {}
-

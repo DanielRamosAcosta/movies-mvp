@@ -24,4 +24,3 @@ class MediaElement {
         return title
     }
 }
-

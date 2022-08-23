@@ -26,7 +26,7 @@ class AppFactory {
     public static func mockRepositories(_ container: Container) {
         container.register(MovieRepository.self, factory: MovieRepositoryFake.build)
     }
-    
+
     public static func mockControllers(_ container: Container) {
         container.register(HomeViewDelegate.self, factory: HomeViewControllerFake.build).inObjectScope(.container)
     }
