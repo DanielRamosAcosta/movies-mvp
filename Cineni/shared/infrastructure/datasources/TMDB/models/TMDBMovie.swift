@@ -8,6 +8,7 @@
 import Foundation
 
 struct TMDBMovie: Codable {
+    // swiftlint:disable identifier_name
     let adult: Bool
     let backdrop_path: String
     let id: Int
@@ -23,4 +24,5 @@ struct TMDBMovie: Codable {
     let video: Bool
     let vote_average: Double
     let vote_count: Int
+    // swiftlint:enable identifier_name
 }

@@ -14,7 +14,9 @@ enum TMDBContent {
 
 extension TMDBContent: Codable {
     private enum CodingKeys: String, CodingKey {
+        // swiftlint:disable identifier_name
         case media_type
+        // swiftlint:enable identifier_name
     }
 
     init(from decoder: Decoder) throws {

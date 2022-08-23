@@ -10,11 +10,11 @@ import Swinject
 import UIKit
 
 enum Sections: Int {
-    case TrendingMovies = 0
-    case TrendingTv = 1
-    case Popular = 2
-    case UpcomingMovies = 3
-    case TopRated = 4
+    case trendingMovies = 0
+    case trendingTv = 1
+    case popular = 2
+    case upcomingMovies = 3
+    case topRated = 4
 }
 
 class HomeViewController: UIViewController, HomeViewDelegate {
@@ -78,7 +78,13 @@ class HomeViewController: UIViewController, HomeViewDelegate {
 
     private func configureNavBar() {
         let image = UIImage(named: "logo")?.withRenderingMode(.alwaysOriginal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, landscapeImagePhone: image, style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: image,
+            landscapeImagePhone: image,
+            style: .done,
+            target: self,
+            action: nil
+        )
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil),
@@ -97,7 +103,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CollectionViewTableViewCell.identifier,
+            for: indexPath
+        ) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
 

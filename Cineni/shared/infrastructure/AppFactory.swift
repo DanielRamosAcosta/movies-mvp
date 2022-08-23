@@ -17,7 +17,7 @@ class AppFactory {
         container
             .register(HomeViewController.self, factory: HomeViewController.build)
             .initCompleted(HomeViewController.initCompleted)
-        container.register(HomeViewDelegate.self) { r in r.resolve(HomeViewController.self)! }
+        container.register(HomeViewDelegate.self) { resolver in resolver.resolve(HomeViewController.self)! }
         container.register(HomePresenter.self, factory: HomePresenter.build)
 
         return container
