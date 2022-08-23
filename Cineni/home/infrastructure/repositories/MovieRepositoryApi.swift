@@ -31,4 +31,20 @@ class MovieRepositoryApi: MovieRepository {
             .map { $0.map { Movie(title: $0.title, posterPath: $0.posterPath) } }
             .eraseToAnyPublisher()
     }
+    
+    func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
+        return client.getTrending(content: .tv)
+            .map { data -> [TMDBTVShow] in
+                data.results.compactMap { content -> TMDBTVShow? in
+                    switch content {
+                    case let .tvShow(tvShow):
+                        return tvShow
+                    case .movie:
+                        return nil
+                    }
+                }
+            }
+            .map { $0.map { TVShow(title: $0.name, posterPath: $0.posterPath) } }
+            .eraseToAnyPublisher()
+    }
 }

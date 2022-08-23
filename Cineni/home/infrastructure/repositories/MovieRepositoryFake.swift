@@ -23,6 +23,16 @@ class MovieRepositoryFake: MovieRepository {
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
+    
+    func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
+        let tvShows: [TVShow] = [
+            TVShow(title: "She-Hulk: Attorney at Law", posterPath: "/zNKVhijwhmkcMcgonCQ2yHLc7Ca.jpg")
+        ]
+        
+        return Just(tvShows)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
 
     private let simulateErrors: Bool
 

@@ -15,6 +15,7 @@ struct Constants {
 enum TMDBContentType: String {
     case all
     case movie
+    case tv
 }
 
 class TMDBClient {

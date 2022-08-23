@@ -12,19 +12,28 @@ import Nimble
 import Quick
 
 class HomePresenterSpec: QuickSpec {
+    var homePresenter: HomePresenter!
+    var homeView: HomeViewControllerFake!
+    
     override func spec() {
-        describe("loading the trending movies") {
-            it("calls the home view controller with the movies") {
-                let container = AppFactory.create()
-                AppFactory.mockRepositories(container)
-                AppFactory.mockControllers(container)
-                let homePresenter = container.resolve(HomePresenter.self)!
-                let view = container.resolve(HomeViewDelegate.self)! as! HomeViewControllerFake
+        beforeEach {
+            let container = AppFactory.create()
+            AppFactory.mockRepositories(container)
+            AppFactory.mockControllers(container)
+            self.homePresenter = container.resolve(HomePresenter.self)
+            self.homeView = container.resolve(HomeViewDelegate.self)! as? HomeViewControllerFake
+        }
+        
+        it("loads trending movies into the view") {
+            self.homePresenter.loadTrendingMovies()
 
-                homePresenter.getMovies()
+            expect(self.homeView.trendingMovies).to(haveCount(1))
+        }
+       
+        it("loads trending tv shows into the view") {
+            self.homePresenter.loadTrendingTVShows()
 
-                expect { view.trendingMovies }.toEventually(haveCount(1))
-            }
+            expect(self.homeView.trendingTVShows).to(haveCount(1))
         }
     }
 }

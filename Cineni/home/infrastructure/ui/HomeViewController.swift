@@ -64,11 +64,20 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
 
-        presenter?.getMovies()
+        presenter?.loadTrendingMovies()
+        presenter?.loadTrendingTVShows()
     }
 
     func presentTrendingMovies(_ trendingMovies: [Movie]) {
         self.trendingMovies = trendingMovies
+
+        DispatchQueue.main.async {
+            self.homeFeedTable.reloadData()
+        }
+    }
+    
+    func presentTrendingTVShows(_ trendingTVShows: [TVShow]) {
+        self.trendingTVShows = trendingTVShows
 
         DispatchQueue.main.async {
             self.homeFeedTable.reloadData()

@@ -18,6 +18,6 @@ class CineniUITests: XCTestCase {
         app.launch()
 
         print(app.images["Vengeance"].tap())
-        // print(app.images["She-Hulk: Attorney at Law"].tap())
+        print(app.images["She-Hulk: Attorney at Law"].tap())
     }
 }
