@@ -28,6 +28,6 @@ class AppFactory {
     }
     
     public static func mockControllers(_ container: Container) {
-        container.register(HomeViewDelegate.self, factory: HomeViewControllerFake.build)
+        container.register(HomeViewDelegate.self, factory: HomeViewControllerFake.build).inObjectScope(.container)
     }
 }

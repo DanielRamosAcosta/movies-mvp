@@ -388,9 +388,9 @@
 		A4F60B4F28A6A2D800E4159B /* home */ = {
 			isa = PBXGroup;
 			children = (
+				A4F60B5228A6A2F400E4159B /* domain */,
 				A4F60B5728A6B43800E4159B /* use-cases */,
 				A4A251AB28B3FE3E00136B75 /* infrastructure */,
-				A4F60B5228A6A2F400E4159B /* domain */,
 			);
 			path = home;
 			sourceTree = "<group>";

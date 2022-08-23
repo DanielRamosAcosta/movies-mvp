@@ -23,6 +23,7 @@ class HomePresenterSpec: QuickSpec {
           homePresenter.getMovies()
           
           expect { view.trendingMovies }.toEventually(haveCount(1))
+          print("Hello world")
       }
     }
   }

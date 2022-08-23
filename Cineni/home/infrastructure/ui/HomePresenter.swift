@@ -33,7 +33,6 @@ class HomePresenter {
             }
             .sink(
                 receiveValue: { [weak self] movies in
-                    print("passing movies to home view")
                     self?.homeView?.presentTrendingMovies(movies)
                 }
             )

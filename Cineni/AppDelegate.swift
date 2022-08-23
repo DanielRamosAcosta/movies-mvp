@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
         // Override point for customization after application launch.
+        print("[AppDelegate] didFinishLaunchingWithOptions")
         return true
     }
 
@@ -25,11 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
-
+        print("[AppDelegate] configurationForConnecting scene")
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_: UIApplication, didDiscardSceneSessions _: Set<UISceneSession>) {
+        print("[AppDelegate] didDiscardSceneSessions")
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running,
         // this will be called shortly after application:didFinishLaunchingWithOptions.
