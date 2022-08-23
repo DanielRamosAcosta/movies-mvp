@@ -26,14 +26,14 @@ class HomePresenter {
     }
 
     public func getMovies() {
-        print("Pillando pelis")
         cancellable = homeUseCases.getTrendingMovies()
-            .catch { error -> AnyPublisher<[MovieDomain], Never> in
+            .catch { error -> AnyPublisher<[Movie], Never> in
                 print("This is the error \(error)")
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
             }
             .sink(
                 receiveValue: { [weak self] movies in
+                    print("passing movies to home view")
                     self?.homeView?.presentTrendingMovies(movies)
                 }
             )

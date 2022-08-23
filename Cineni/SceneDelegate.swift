@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let container = AppFactory.create()
 
         if CommandLine.arguments.contains("-UITests") {
-            AppFactory.overrideWithTests(container)
+            AppFactory.mockRepositories(container)
         }
 
         return container

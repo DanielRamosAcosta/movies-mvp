@@ -28,6 +28,10 @@
 		A4A251A828B3FD5500136B75 /* TMDBTVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251A728B3FD5500136B75 /* TMDBTVShow.swift */; };
 		A4A251AA28B3FD7C00136B75 /* TMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251A928B3FD7C00136B75 /* TMDBClient.swift */; };
 		A4A251B228B3FF1500136B75 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251B128B3FF1500136B75 /* AppFactory.swift */; };
+		A4A251C228B4C69200136B75 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C128B4C69200136B75 /* TVShow.swift */; };
+		A4A251C428B4C6AC00136B75 /* MediaElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C328B4C6AC00136B75 /* MediaElement.swift */; };
+		A4A251C628B4CE3300136B75 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C528B4CE3300136B75 /* HomePresenterTests.swift */; };
+		A4A251C828B4CEE300136B75 /* HomeViewControllerFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C728B4CEE300136B75 /* HomeViewControllerFake.swift */; };
 		A4DE063228ACE32300767407 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063128ACE32300767407 /* Quick */; };
 		A4DE063528ACE48B00767407 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063428ACE48B00767407 /* Nimble */; };
 		A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */; };
@@ -90,6 +94,10 @@
 		A4A251A728B3FD5500136B75 /* TMDBTVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTVShow.swift; sourceTree = "<group>"; };
 		A4A251A928B3FD7C00136B75 /* TMDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBClient.swift; sourceTree = "<group>"; };
 		A4A251B128B3FF1500136B75 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		A4A251C128B4C69200136B75 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		A4A251C328B4C6AC00136B75 /* MediaElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaElement.swift; sourceTree = "<group>"; };
+		A4A251C528B4CE3300136B75 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		A4A251C728B4CEE300136B75 /* HomeViewControllerFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFake.swift; sourceTree = "<group>"; };
 		A4F60B1C28A6A2CC00E4159B /* Cineni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cineni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +228,7 @@
 				A45DCD4728B3BDF400E2BE28 /* HomePresenter.swift */,
 				A45DCD4528B3BCA900E2BE28 /* HomeViewDelegate.swift */,
 				A47421D828AE487F00441BB0 /* HomeViewController.swift */,
+				A4A251C728B4CEE300136B75 /* HomeViewControllerFake.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -363,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F60B3628A6A2CE00E4159B /* CineniTests.swift */,
+				A4A251C528B4CE3300136B75 /* HomePresenterTests.swift */,
 			);
 			path = CineniTests;
 			sourceTree = "<group>";
@@ -390,6 +400,8 @@
 			children = (
 				A4F60B5A28A6B46100E4159B /* repositories */,
 				A45DCD4D28B3F44F00E2BE28 /* Movie.swift */,
+				A4A251C128B4C69200136B75 /* TVShow.swift */,
+				A4A251C328B4C6AC00136B75 /* MediaElement.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -417,8 +429,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4F60B4628A6A2CE00E4159B /* Build configuration list for PBXNativeTarget "Cineni" */;
 			buildPhases = (
-				A4A251C028B4BBA600136B75 /* Run Swiftformat */,
-				A4A251BF28B40C0700136B75 /* Run SwiftLint */,
 				A4F60B1828A6A2CC00E4159B /* Sources */,
 				A4F60B1928A6A2CC00E4159B /* Frameworks */,
 				A4F60B1A28A6A2CC00E4159B /* Resources */,
@@ -552,52 +562,15 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A4A251BF28B40C0700136B75 /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		A4A251C028B4BBA600136B75 /* Run Swiftformat */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swiftformat";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: Swiftformat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		A4F60B1828A6A2CC00E4159B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A251C428B4C6AC00136B75 /* MediaElement.swift in Sources */,
 				A4A251A628B3FD3D00136B75 /* TMDBMovie.swift in Sources */,
 				A45DCD4C28B3F34D00E2BE28 /* MovieRepositoryFake.swift in Sources */,
+				A4A251C228B4C69200136B75 /* TVShow.swift in Sources */,
 				A47421DD28AE48B800441BB0 /* SearchViewController.swift in Sources */,
 				A4A251A828B3FD5500136B75 /* TMDBTVShow.swift in Sources */,
 				A45DCD4E28B3F44F00E2BE28 /* Movie.swift in Sources */,
@@ -618,6 +591,7 @@
 				A4F60B5C28A6B47B00E4159B /* MovieRepository.swift in Sources */,
 				A45DCD4A28B3F2FC00E2BE28 /* MovieRepositoryApi.swift in Sources */,
 				A47421DB28AE489A00441BB0 /* UpcomingViewController.swift in Sources */,
+				A4A251C828B4CEE300136B75 /* HomeViewControllerFake.swift in Sources */,
 				A4F60B5928A6B44D00E4159B /* HomeUseCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F60B3728A6A2CE00E4159B /* CineniTests.swift in Sources */,
+				A4A251C628B4CE3300136B75 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

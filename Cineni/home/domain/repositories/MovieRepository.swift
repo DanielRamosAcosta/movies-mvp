@@ -10,7 +10,7 @@ import Foundation
 import Swinject
 
 protocol MovieRepository {
-    func getTrending() -> AnyPublisher<[MovieDomain], Error>
+    func getTrendingMovies() -> AnyPublisher<[Movie], Error>
 }
 
 enum MovieRepositoryError: Error {

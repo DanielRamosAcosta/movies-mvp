@@ -25,7 +25,11 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         "Upcoming Movies",
         "Top rated",
     ]
-    private var movies: [MovieDomain] = []
+    private var trendingMovies: [Movie] = []
+    private var trendingTVShows: [TVShow] = []
+    private var popularMovies: [Movie] = []
+    private var upcomingMovies: [Movie] = []
+    private var topRatedMovies: [Movie] = []
 
     private var presenter: HomePresenter?
 
@@ -63,8 +67,8 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         presenter?.getMovies()
     }
 
-    func presentTrendingMovies(_ movies: [MovieDomain]) {
-        self.movies = movies
+    func presentTrendingMovies(_ trendingMovies: [Movie]) {
+        self.trendingMovies = trendingMovies
 
         DispatchQueue.main.async {
             self.homeFeedTable.reloadData()
@@ -110,10 +114,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        if indexPath.section == 0 {
-            cell.configure(with: movies)
-        } else {
-            cell.configure(with: [])
+        switch indexPath.section {
+        case Sections.trendingMovies.rawValue:
+            cell.configure(with: trendingMovies)
+        case Sections.trendingTv.rawValue:
+            cell.configure(with: trendingTVShows)
+        case Sections.popular.rawValue:
+            cell.configure(with: popularMovies)
+        case Sections.upcomingMovies.rawValue:
+            cell.configure(with: upcomingMovies)
+        case Sections.topRated.rawValue:
+            cell.configure(with: topRatedMovies)
+        default:
+            print("Fallback \(indexPath.section)")
+            return cell
         }
 
         return cell
