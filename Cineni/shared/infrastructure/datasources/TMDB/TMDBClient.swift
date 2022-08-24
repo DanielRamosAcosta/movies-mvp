@@ -23,7 +23,7 @@ class TMDBClient {
         ]
         return components.url
     }
-    
+
     func getTrendingMovies() -> AnyPublisher<TMDBPaginatedResponse<TMDBMovie>, Error> {
         return getUrlForPath("/3/trending/movie/day")
             .publisher
@@ -32,7 +32,7 @@ class TMDBClient {
             .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-    
+
     func getTrendingTVShows() -> AnyPublisher<TMDBPaginatedResponse<TMDBTVShow>, Error> {
         return getUrlForPath("/3/trending/tv/day")
             .publisher
@@ -41,7 +41,7 @@ class TMDBClient {
             .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-    
+
     private func mapErrors(element: URLSession.DataTaskPublisher.Output) throws -> Data {
         guard let httpResponse = element.response as? HTTPURLResponse,
               httpResponse.statusCode == 200
