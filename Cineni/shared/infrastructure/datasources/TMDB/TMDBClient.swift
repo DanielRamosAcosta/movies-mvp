@@ -42,6 +42,15 @@ class TMDBClient {
             .eraseToAnyPublisher()
     }
 
+    func getPopularMovies() -> AnyPublisher<TMDBPaginatedResponse<TMDBMoviePopular>, Error> {
+        return getUrlForPath("/3/movie/popular")
+            .publisher
+            .flatMap { URLSession.shared.dataTaskPublisher(for: $0) }
+            .tryMap(mapErrors)
+            .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+
     private func mapErrors(element: URLSession.DataTaskPublisher.Output) throws -> Data {
         guard let httpResponse = element.response as? HTTPURLResponse,
               httpResponse.statusCode == 200

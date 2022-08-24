@@ -5,8 +5,8 @@
 //  Created by Daniel Ramos on 12/8/22.
 //
 
-import XCTest
 import Nimble
+import XCTest
 
 class CineniUITests: XCTestCase {
     override func setUpWithError() throws {
@@ -20,5 +20,6 @@ class CineniUITests: XCTestCase {
 
         expect(app.images["Vengeance"].exists).to(beTrue())
         expect(app.images["She-Hulk: Attorney at Law"].exists).to(beTrue())
+        expect(app.images["Dragon Ball Super: Super Hero"].exists).to(beTrue())
     }
 }

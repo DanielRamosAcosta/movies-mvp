@@ -12,7 +12,7 @@ import Quick
 
 class MovieRepositoryApiSpec: QuickSpec {
     override func spec() {
-        it("gets trending tv movies") {
+        it("gets trending movies") {
             let movieRepositoryApi = MovieRepositoryApi()
 
             let movies = try self.awaitPublisher(movieRepositoryApi.getTrendingMovies())
@@ -26,6 +26,14 @@ class MovieRepositoryApiSpec: QuickSpec {
             let tvShows = try self.awaitPublisher(movieRepositoryApi.getTrendingTVShows())
 
             expect(tvShows).to(haveCount(20))
+        }
+
+        it("gets popular movies") {
+            let movieRepositoryApi = MovieRepositoryApi()
+
+            let movies = try self.awaitPublisher(movieRepositoryApi.getPopularMovies())
+
+            expect(movies).to(haveCount(20))
         }
     }
 }

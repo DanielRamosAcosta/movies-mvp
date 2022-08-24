@@ -10,4 +10,5 @@ import Foundation
 protocol HomeViewDelegate: AnyObject {
     func presentTrendingMovies(_ movies: [Movie])
     func presentTrendingTVShows(_ tvShows: [TVShow])
+    func presentPopularMovies(_ movies: [Movie])
 }

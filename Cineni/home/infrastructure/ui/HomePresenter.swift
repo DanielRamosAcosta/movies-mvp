@@ -14,6 +14,7 @@ class HomePresenter {
     let homeUseCases: HomeUseCases
     private var cancellable1: AnyCancellable?
     private var cancellable2: AnyCancellable?
+    private var cancellable3: AnyCancellable?
 
     public static func build(_ resolver: Resolver) -> HomePresenter {
         let delegate = resolver.resolve(HomeViewDelegate.self)!
@@ -48,6 +49,19 @@ class HomePresenter {
             .sink(
                 receiveValue: { [weak self] tvShows in
                     self?.homeView?.presentTrendingTVShows(tvShows)
+                }
+            )
+    }
+
+    public func loadPopularMovies() {
+        cancellable3 = homeUseCases.getPopularMovies()
+            .catch { error -> AnyPublisher<[Movie], Never> in
+                print("This is the error \(error)")
+                return Empty(completeImmediately: true).eraseToAnyPublisher()
+            }
+            .sink(
+                receiveValue: { [weak self] movies in
+                    self?.homeView?.presentPopularMovies(movies)
                 }
             )
     }

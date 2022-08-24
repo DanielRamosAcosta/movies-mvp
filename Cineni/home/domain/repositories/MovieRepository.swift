@@ -12,6 +12,7 @@ import Swinject
 protocol MovieRepository {
     func getTrendingMovies() -> AnyPublisher<[Movie], Error>
     func getTrendingTVShows() -> AnyPublisher<[TVShow], Error>
+    func getPopularMovies() -> AnyPublisher<[Movie], Error>
 }
 
 enum MovieRepositoryError: Error {
