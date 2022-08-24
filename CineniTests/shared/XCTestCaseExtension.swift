@@ -5,9 +5,9 @@
 //  Created by Daniel Ramos on 24/8/22.
 //
 
+import Combine
 import Foundation
 import XCTest
-import Combine
 
 extension XCTestCase {
     func awaitPublisher<T: Publisher>(
@@ -21,7 +21,7 @@ extension XCTestCase {
         let cancellable = publisher.sink(
             receiveCompletion: { completion in
                 switch completion {
-                case .failure(let error):
+                case let .failure(error):
                     result = .failure(error)
                 case .finished:
                     break

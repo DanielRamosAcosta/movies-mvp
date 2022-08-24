@@ -38,7 +38,7 @@ class HomePresenter {
                 }
             )
     }
-    
+
     public func loadTrendingTVShows() {
         cancellable2 = homeUseCases.getTrendingTVShows()
             .catch { error -> AnyPublisher<[TVShow], Never> in

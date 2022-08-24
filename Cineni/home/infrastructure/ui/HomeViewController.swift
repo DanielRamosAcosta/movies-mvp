@@ -75,7 +75,7 @@ class HomeViewController: UIViewController, HomeViewDelegate {
             self.homeFeedTable.reloadData()
         }
     }
-    
+
     func presentTrendingTVShows(_ trendingTVShows: [TVShow]) {
         self.trendingTVShows = trendingTVShows
 

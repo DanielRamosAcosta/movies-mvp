@@ -4,7 +4,6 @@
 //
 //  Created by Daniel Ramos on 23/8/22.
 //
-// swiftlint:disable force_cast
 
 @testable import Cineni
 import Foundation
@@ -14,7 +13,7 @@ import Quick
 class HomePresenterSpec: QuickSpec {
     var homePresenter: HomePresenter!
     var homeView: HomeViewControllerFake!
-    
+
     override func spec() {
         beforeEach {
             let container = AppFactory.create()
@@ -23,13 +22,13 @@ class HomePresenterSpec: QuickSpec {
             self.homePresenter = container.resolve(HomePresenter.self)
             self.homeView = container.resolve(HomeViewDelegate.self)! as? HomeViewControllerFake
         }
-        
+
         it("loads trending movies into the view") {
             self.homePresenter.loadTrendingMovies()
 
             expect(self.homeView.trendingMovies).to(haveCount(1))
         }
-       
+
         it("loads trending tv shows into the view") {
             self.homePresenter.loadTrendingTVShows()
 

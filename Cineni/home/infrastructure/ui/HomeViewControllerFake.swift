@@ -19,7 +19,7 @@ class HomeViewControllerFake: HomeViewDelegate {
     func presentTrendingMovies(_ movies: [Movie]) {
         trendingMovies = movies
     }
-    
+
     func presentTrendingTVShows(_ tvShows: [TVShow]) {
         trendingTVShows = tvShows
     }
