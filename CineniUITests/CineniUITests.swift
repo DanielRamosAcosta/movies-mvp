@@ -17,7 +17,7 @@ class CineniUITests: XCTestCase {
         app.launchArguments = ["-UITests"]
         app.launch()
 
-        print(app.images["Vengeance"].tap())
-        print(app.images["She-Hulk: Attorney at Law"].tap())
+        XCTAssertEqual(app.images["Vengeance"].exists, true)
+        XCTAssertEqual(app.images["She-Hulk: Attorney at Law"].exists, true)
     }
 }

@@ -12,39 +12,42 @@ struct Constants {
     static let apiKey = "486d343f9b5ccc40cd5650b69fc70c5e"
 }
 
-enum TMDBContentType: String {
-    case all
-    case movie
-    case tvShow = "tv"
-}
-
 class TMDBClient {
-    func getTrendingUrl(_ type: TMDBContentType) -> URLComponents {
+    func getUrlForPath(_ path: String) -> URL? {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "api.themoviedb.org"
-        components.path = "/3/trending/\(type.rawValue)/day"
+        components.path = path
         components.queryItems = [
             URLQueryItem(name: "api_key", value: Constants.apiKey),
         ]
-        return components
+        return components.url
     }
-
-    func getTrending(content: TMDBContentType) -> AnyPublisher<TMDBPaginatedResponse, Error> {
-        guard let url = getTrendingUrl(content).url else {
-            return Empty(completeImmediately: true).eraseToAnyPublisher()
-        }
-
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { element -> Data in
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200
-                else {
-                    throw URLError(.badServerResponse)
-                }
-                return element.data
-            }
+    
+    func getTrendingMovies() -> AnyPublisher<TMDBPaginatedResponse<TMDBMovie>, Error> {
+        return getUrlForPath("/3/trending/movie/day")
+            .publisher
+            .flatMap { URLSession.shared.dataTaskPublisher(for: $0) }
+            .tryMap(mapErrors)
             .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
+    }
+    
+    func getTrendingTVShows() -> AnyPublisher<TMDBPaginatedResponse<TMDBTVShow>, Error> {
+        return getUrlForPath("/3/trending/tv/day")
+            .publisher
+            .flatMap { URLSession.shared.dataTaskPublisher(for: $0) }
+            .tryMap(mapErrors)
+            .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    private func mapErrors(element: URLSession.DataTaskPublisher.Output) throws -> Data {
+        guard let httpResponse = element.response as? HTTPURLResponse,
+              httpResponse.statusCode == 200
+        else {
+            throw URLError(.badServerResponse)
+        }
+        return element.data
     }
 }

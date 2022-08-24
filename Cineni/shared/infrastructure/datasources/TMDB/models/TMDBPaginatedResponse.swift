@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct TMDBPaginatedResponse: Codable {
-    let results: [TMDBContent]
+struct TMDBPaginatedResponse<T: Codable>: Codable {
+    let results: [T]
 }
