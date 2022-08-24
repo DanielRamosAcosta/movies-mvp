@@ -12,7 +12,8 @@ import Swinject
 class HomePresenter {
     private weak var homeView: HomeViewDelegate?
     let homeUseCases: HomeUseCases
-    private var cancellable: AnyCancellable?
+    private var cancellable1: AnyCancellable?
+    private var cancellable2: AnyCancellable?
 
     public static func build(_ resolver: Resolver) -> HomePresenter {
         let delegate = resolver.resolve(HomeViewDelegate.self)!
@@ -25,16 +26,28 @@ class HomePresenter {
         self.homeUseCases = homeUseCases
     }
 
-    public func getMovies() {
-        print("Pillando pelis")
-        cancellable = homeUseCases.getTrendingMovies()
-            .catch { error -> AnyPublisher<[MovieDomain], Never> in
+    public func loadTrendingMovies() {
+        cancellable1 = homeUseCases.getTrendingMovies()
+            .catch { error -> AnyPublisher<[Movie], Never> in
                 print("This is the error \(error)")
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
             }
             .sink(
                 receiveValue: { [weak self] movies in
                     self?.homeView?.presentTrendingMovies(movies)
+                }
+            )
+    }
+
+    public func loadTrendingTVShows() {
+        cancellable2 = homeUseCases.getTrendingTVShows()
+            .catch { error -> AnyPublisher<[TVShow], Never> in
+                print("This is the error \(error)")
+                return Empty(completeImmediately: true).eraseToAnyPublisher()
+            }
+            .sink(
+                receiveValue: { [weak self] tvShows in
+                    self?.homeView?.presentTrendingTVShows(tvShows)
                 }
             )
     }

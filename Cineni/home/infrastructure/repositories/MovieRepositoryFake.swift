@@ -14,12 +14,22 @@ class MovieRepositoryFake: MovieRepository {
         return MovieRepositoryFake()
     }
 
-    func getTrending() -> AnyPublisher<[MovieDomain], Error> {
-        let movies: [MovieDomain] = [
-            MovieDomain(title: "Vengeance", posterPath: "/jwFBzWabfWpnN9P5YIVVX5W8WUY.jpg"),
+    func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
+        let movies: [Movie] = [
+            Movie(title: "Vengeance", posterPath: "/pdQFGAX68LWoiBqzXwZhMRaraC0.jpg"),
         ]
 
         return Just(movies)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+
+    func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
+        let tvShows: [TVShow] = [
+            TVShow(title: "She-Hulk: Attorney at Law", posterPath: "/zNKVhijwhmkcMcgonCQ2yHLc7Ca.jpg"),
+        ]
+
+        return Just(tvShows)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }

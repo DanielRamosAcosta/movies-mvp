@@ -28,13 +28,22 @@
 		A4A251A828B3FD5500136B75 /* TMDBTVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251A728B3FD5500136B75 /* TMDBTVShow.swift */; };
 		A4A251AA28B3FD7C00136B75 /* TMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251A928B3FD7C00136B75 /* TMDBClient.swift */; };
 		A4A251B228B3FF1500136B75 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251B128B3FF1500136B75 /* AppFactory.swift */; };
+		A4A251C228B4C69200136B75 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C128B4C69200136B75 /* TVShow.swift */; };
+		A4A251C428B4C6AC00136B75 /* MediaElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C328B4C6AC00136B75 /* MediaElement.swift */; };
+		A4A251C628B4CE3300136B75 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C528B4CE3300136B75 /* HomePresenterTests.swift */; };
+		A4A251C828B4CEE300136B75 /* HomeViewControllerFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251C728B4CEE300136B75 /* HomeViewControllerFake.swift */; };
+		A4A251CC28B5016000136B75 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251CB28B5016000136B75 /* main.swift */; };
+		A4A251CE28B501CD00136B75 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251CD28B501CD00136B75 /* TestingAppDelegate.swift */; };
+		A4A251D028B5025700136B75 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251CF28B5025700136B75 /* TestingSceneDelegate.swift */; };
+		A4A251D228B5028600136B75 /* TestingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251D128B5028600136B75 /* TestingRootViewController.swift */; };
+		A4A251D828B58F0200136B75 /* MovieRepositoryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251D728B58F0200136B75 /* MovieRepositoryApiTests.swift */; };
+		A4A251DB28B5948D00136B75 /* XCTestCaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A251DA28B5948D00136B75 /* XCTestCaseExtension.swift */; };
 		A4DE063228ACE32300767407 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063128ACE32300767407 /* Quick */; };
 		A4DE063528ACE48B00767407 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = A4DE063428ACE48B00767407 /* Nimble */; };
 		A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */; };
 		A4F60B2228A6A2CC00E4159B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */; };
 		A4F60B2928A6A2CE00E4159B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F60B2828A6A2CE00E4159B /* Assets.xcassets */; };
 		A4F60B2C28A6A2CE00E4159B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F60B2A28A6A2CE00E4159B /* LaunchScreen.storyboard */; };
-		A4F60B3728A6A2CE00E4159B /* CineniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B3628A6A2CE00E4159B /* CineniTests.swift */; };
 		A4F60B4128A6A2CE00E4159B /* CineniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B4028A6A2CE00E4159B /* CineniUITests.swift */; };
 		A4F60B5928A6B44D00E4159B /* HomeUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B5828A6B44D00E4159B /* HomeUseCases.swift */; };
 		A4F60B5C28A6B47B00E4159B /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F60B5B28A6B47B00E4159B /* MovieRepository.swift */; };
@@ -90,6 +99,16 @@
 		A4A251A728B3FD5500136B75 /* TMDBTVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTVShow.swift; sourceTree = "<group>"; };
 		A4A251A928B3FD7C00136B75 /* TMDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBClient.swift; sourceTree = "<group>"; };
 		A4A251B128B3FF1500136B75 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		A4A251C128B4C69200136B75 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		A4A251C328B4C6AC00136B75 /* MediaElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaElement.swift; sourceTree = "<group>"; };
+		A4A251C528B4CE3300136B75 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		A4A251C728B4CEE300136B75 /* HomeViewControllerFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFake.swift; sourceTree = "<group>"; };
+		A4A251CB28B5016000136B75 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A4A251CD28B501CD00136B75 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		A4A251CF28B5025700136B75 /* TestingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneDelegate.swift; sourceTree = "<group>"; };
+		A4A251D128B5028600136B75 /* TestingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingRootViewController.swift; sourceTree = "<group>"; };
+		A4A251D728B58F0200136B75 /* MovieRepositoryApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryApiTests.swift; sourceTree = "<group>"; };
+		A4A251DA28B5948D00136B75 /* XCTestCaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtension.swift; sourceTree = "<group>"; };
 		A4F60B1C28A6A2CC00E4159B /* Cineni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cineni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F60B1F28A6A2CC00E4159B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4F60B2128A6A2CC00E4159B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +116,6 @@
 		A4F60B2B28A6A2CE00E4159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4F60B2D28A6A2CE00E4159B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F60B3228A6A2CE00E4159B /* CineniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4F60B3628A6A2CE00E4159B /* CineniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineniTests.swift; sourceTree = "<group>"; };
 		A4F60B3C28A6A2CE00E4159B /* CineniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F60B4028A6A2CE00E4159B /* CineniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineniUITests.swift; sourceTree = "<group>"; };
 		A4F60B5828A6B44D00E4159B /* HomeUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCases.swift; sourceTree = "<group>"; };
@@ -220,6 +238,7 @@
 				A45DCD4728B3BDF400E2BE28 /* HomePresenter.swift */,
 				A45DCD4528B3BCA900E2BE28 /* HomeViewDelegate.swift */,
 				A47421D828AE487F00441BB0 /* HomeViewController.swift */,
+				A4A251C728B4CEE300136B75 /* HomeViewControllerFake.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -321,6 +340,47 @@
 			path = main;
 			sourceTree = "<group>";
 		};
+		A4A251D328B5047C00136B75 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				A4A251D428B5048700136B75 /* infrastructure */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		A4A251D428B5048700136B75 /* infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				A4A251D528B5049300136B75 /* ui */,
+				A4A251D628B58EE800136B75 /* repositories */,
+			);
+			path = infrastructure;
+			sourceTree = "<group>";
+		};
+		A4A251D528B5049300136B75 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				A4A251C528B4CE3300136B75 /* HomePresenterTests.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		A4A251D628B58EE800136B75 /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A4A251D728B58F0200136B75 /* MovieRepositoryApiTests.swift */,
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
+		A4A251D928B593FB00136B75 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				A4A251DA28B5948D00136B75 /* XCTestCaseExtension.swift */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		A4F60B1328A6A2CC00E4159B = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +415,7 @@
 				A4F60B2828A6A2CE00E4159B /* Assets.xcassets */,
 				A4F60B2A28A6A2CE00E4159B /* LaunchScreen.storyboard */,
 				A4F60B2D28A6A2CE00E4159B /* Info.plist */,
+				A4A251CB28B5016000136B75 /* main.swift */,
 			);
 			path = Cineni;
 			sourceTree = "<group>";
@@ -362,7 +423,11 @@
 		A4F60B3528A6A2CE00E4159B /* CineniTests */ = {
 			isa = PBXGroup;
 			children = (
-				A4F60B3628A6A2CE00E4159B /* CineniTests.swift */,
+				A4A251D928B593FB00136B75 /* shared */,
+				A4A251D328B5047C00136B75 /* home */,
+				A4A251CD28B501CD00136B75 /* TestingAppDelegate.swift */,
+				A4A251CF28B5025700136B75 /* TestingSceneDelegate.swift */,
+				A4A251D128B5028600136B75 /* TestingRootViewController.swift */,
 			);
 			path = CineniTests;
 			sourceTree = "<group>";
@@ -378,9 +443,9 @@
 		A4F60B4F28A6A2D800E4159B /* home */ = {
 			isa = PBXGroup;
 			children = (
+				A4F60B5228A6A2F400E4159B /* domain */,
 				A4F60B5728A6B43800E4159B /* use-cases */,
 				A4A251AB28B3FE3E00136B75 /* infrastructure */,
-				A4F60B5228A6A2F400E4159B /* domain */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -390,6 +455,8 @@
 			children = (
 				A4F60B5A28A6B46100E4159B /* repositories */,
 				A45DCD4D28B3F44F00E2BE28 /* Movie.swift */,
+				A4A251C128B4C69200136B75 /* TVShow.swift */,
+				A4A251C328B4C6AC00136B75 /* MediaElement.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -417,8 +484,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4F60B4628A6A2CE00E4159B /* Build configuration list for PBXNativeTarget "Cineni" */;
 			buildPhases = (
-				A4A251C028B4BBA600136B75 /* Run Swiftformat */,
-				A4A251BF28B40C0700136B75 /* Run SwiftLint */,
 				A4F60B1828A6A2CC00E4159B /* Sources */,
 				A4F60B1928A6A2CC00E4159B /* Frameworks */,
 				A4F60B1A28A6A2CC00E4159B /* Resources */,
@@ -552,52 +617,15 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A4A251BF28B40C0700136B75 /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		A4A251C028B4BBA600136B75 /* Run Swiftformat */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swiftformat";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: Swiftformat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		A4F60B1828A6A2CC00E4159B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A251C428B4C6AC00136B75 /* MediaElement.swift in Sources */,
 				A4A251A628B3FD3D00136B75 /* TMDBMovie.swift in Sources */,
 				A45DCD4C28B3F34D00E2BE28 /* MovieRepositoryFake.swift in Sources */,
+				A4A251C228B4C69200136B75 /* TVShow.swift in Sources */,
 				A47421DD28AE48B800441BB0 /* SearchViewController.swift in Sources */,
 				A4A251A828B3FD5500136B75 /* TMDBTVShow.swift in Sources */,
 				A45DCD4E28B3F44F00E2BE28 /* Movie.swift in Sources */,
@@ -605,6 +633,7 @@
 				A45DCD3D28AE503D00E2BE28 /* CollectionViewTableViewCell.swift in Sources */,
 				A4A251A228B3FD0600136B75 /* TMDBPaginatedResponse.swift in Sources */,
 				A45DCD4828B3BDF400E2BE28 /* HomePresenter.swift in Sources */,
+				A4A251CC28B5016000136B75 /* main.swift in Sources */,
 				A4A251B228B3FF1500136B75 /* AppFactory.swift in Sources */,
 				A47421D728AE47F000441BB0 /* MainTabBarViewController.swift in Sources */,
 				A4F60B2028A6A2CC00E4159B /* AppDelegate.swift in Sources */,
@@ -618,6 +647,7 @@
 				A4F60B5C28A6B47B00E4159B /* MovieRepository.swift in Sources */,
 				A45DCD4A28B3F2FC00E2BE28 /* MovieRepositoryApi.swift in Sources */,
 				A47421DB28AE489A00441BB0 /* UpcomingViewController.swift in Sources */,
+				A4A251C828B4CEE300136B75 /* HomeViewControllerFake.swift in Sources */,
 				A4F60B5928A6B44D00E4159B /* HomeUseCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,7 +656,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4F60B3728A6A2CE00E4159B /* CineniTests.swift in Sources */,
+				A4A251D028B5025700136B75 /* TestingSceneDelegate.swift in Sources */,
+				A4A251CE28B501CD00136B75 /* TestingAppDelegate.swift in Sources */,
+				A4A251D228B5028600136B75 /* TestingRootViewController.swift in Sources */,
+				A4A251D828B58F0200136B75 /* MovieRepositoryApiTests.swift in Sources */,
+				A4A251DB28B5948D00136B75 /* XCTestCaseExtension.swift in Sources */,
+				A4A251C628B4CE3300136B75 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

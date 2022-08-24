@@ -8,6 +8,7 @@ on:
 
 jobs:
   lint:
+    name: Lint and check format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -22,7 +23,7 @@ jobs:
         uses: norio-nomura/action-swiftlint@3.2.1
 
   build:
-    name: Build and Test default scheme using any available iPhone simulator
+    name: Build and Test
     needs: lint
     runs-on: macos-latest
     steps:
