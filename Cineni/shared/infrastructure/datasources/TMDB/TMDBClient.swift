@@ -41,7 +41,7 @@ class TMDBClient {
             .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-    
+
     func getPopularMovies() -> AnyPublisher<TMDBPaginatedResponse<TMDBMoviePopular>, Error> {
         return getUrlForPath("/3/movie/popular")
             .publisher

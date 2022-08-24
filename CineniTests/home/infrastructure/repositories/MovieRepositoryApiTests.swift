@@ -27,7 +27,7 @@ class MovieRepositoryApiSpec: QuickSpec {
 
             expect(tvShows).to(haveCount(20))
         }
-        
+
         it("gets popular movies") {
             let movieRepositoryApi = MovieRepositoryApi()
 

@@ -52,7 +52,7 @@ class HomePresenter {
                 }
             )
     }
-    
+
     public func loadPopularMovies() {
         cancellable3 = homeUseCases.getPopularMovies()
             .catch { error -> AnyPublisher<[Movie], Never> in

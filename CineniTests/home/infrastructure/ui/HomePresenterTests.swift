@@ -34,7 +34,7 @@ class HomePresenterSpec: QuickSpec {
 
             expect(self.homeView.trendingTVShows).to(haveCount(1))
         }
-        
+
         it("loads popular movies into the view") {
             self.homePresenter.loadPopularMovies()
 

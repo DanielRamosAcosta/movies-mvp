@@ -27,7 +27,7 @@ class HomeUseCases {
     public func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
         return movieRepository.getTrendingTVShows()
     }
-    
+
     public func getPopularMovies() -> AnyPublisher<[Movie], Error> {
         return movieRepository.getPopularMovies()
     }

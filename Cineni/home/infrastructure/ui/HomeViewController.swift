@@ -84,9 +84,9 @@ class HomeViewController: UIViewController, HomeViewDelegate {
             self.homeFeedTable.reloadData()
         }
     }
-    
+
     func presentPopularMovies(_ movies: [Movie]) {
-        self.popularMovies = movies
+        popularMovies = movies
 
         DispatchQueue.main.async {
             self.homeFeedTable.reloadData()

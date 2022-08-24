@@ -33,10 +33,10 @@ class MovieRepositoryFake: MovieRepository {
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
-    
+
     func getPopularMovies() -> AnyPublisher<[Movie], Error> {
         let movies: [Movie] = [
-            Movie(title: "Dragon Ball Super: Super Hero", posterPath: "/rugyJdeoJm7cSJL1q4jBpTNbxyU.jpg")
+            Movie(title: "Dragon Ball Super: Super Hero", posterPath: "/rugyJdeoJm7cSJL1q4jBpTNbxyU.jpg"),
         ]
 
         return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()

@@ -29,7 +29,7 @@ class MovieRepositoryApi: MovieRepository {
             .map { $0.map { TVShow(title: $0.name, posterPath: $0.posterPath) } }
             .eraseToAnyPublisher()
     }
-    
+
     func getPopularMovies() -> AnyPublisher<[Movie], Error> {
         return client.getPopularMovies()
             .map { $0.results }
