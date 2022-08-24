@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Nimble
 
 class CineniUITests: XCTestCase {
     override func setUpWithError() throws {
@@ -17,7 +18,7 @@ class CineniUITests: XCTestCase {
         app.launchArguments = ["-UITests"]
         app.launch()
 
-        XCTAssertEqual(app.images["Vengeance"].exists, true)
-        XCTAssertEqual(app.images["She-Hulk: Attorney at Law"].exists, true)
+        expect(app.images["Vengeance"].exists).to(beTrue())
+        expect(app.images["She-Hulk: Attorney at Law"].exists).to(beTrue())
     }
 }
