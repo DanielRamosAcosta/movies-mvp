@@ -23,6 +23,15 @@ class AppFactory {
         return container
     }
 
+    static func createWithMockedRepositoriesAndControllers() -> Container {
+        let container = AppFactory.create()
+
+        AppFactory.mockRepositories(container)
+        AppFactory.mockControllers(container)
+
+        return container
+    }
+
     public static func mockRepositories(_ container: Container) {
         container.register(MovieRepository.self, factory: MovieRepositoryFake.build)
     }

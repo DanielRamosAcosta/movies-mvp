@@ -14,28 +14,40 @@ class HomePresenterTests: XCTestCase {
     var homeView: HomeViewControllerFake!
 
     override func setUp() async throws {
-        let container = AppFactory.create()
-        AppFactory.mockRepositories(container)
-        AppFactory.mockControllers(container)
+        let container = AppFactory.createWithMockedRepositoriesAndControllers()
         homePresenter = container.resolve(HomePresenter.self)
         homeView = container.resolve(HomeViewDelegate.self)! as? HomeViewControllerFake
     }
 
-    func test_loads_trending_movies_into_the_view() throws {
+    func test_loads_trending_movies_into_the_view() {
         homePresenter.loadTrendingMovies()
 
-        expect(self.homeView.trendingMovies).to(haveCount(1))
+        homeView.expectToHaveTrendingMoviesCount(1)
     }
 
     func test_loads_trending_tv_shows_into_the_view() {
         homePresenter.loadTrendingTVShows()
 
-        expect(self.homeView.trendingTVShows).to(haveCount(1))
+        homeView.expectToHaveTrendingTVShowsCount(1)
     }
 
     func test_loads_popular_movies_into_the_view() {
         homePresenter.loadPopularMovies()
 
-        expect(self.homeView.popularMovies).to(haveCount(1))
+        homeView.expectToHavePopularMoviesCount(1)
+    }
+}
+
+extension HomeViewControllerFake {
+    func expectToHaveTrendingMoviesCount(_ n: Int) {
+        expect(self.trendingMovies).to(haveCount(n))
+    }
+
+    func expectToHaveTrendingTVShowsCount(_ n: Int) {
+        expect(self.trendingTVShows).to(haveCount(n))
+    }
+
+    func expectToHavePopularMoviesCount(_ n: Int) {
+        expect(self.popularMovies).to(haveCount(n))
     }
 }
