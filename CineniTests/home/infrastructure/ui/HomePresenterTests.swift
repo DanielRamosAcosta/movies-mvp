@@ -6,39 +6,36 @@
 //
 
 @testable import Cineni
-import Foundation
 import Nimble
-import Quick
+import XCTest
 
-class HomePresenterSpec: QuickSpec {
+class HomePresenterTests: XCTestCase {
     var homePresenter: HomePresenter!
     var homeView: HomeViewControllerFake!
 
-    override func spec() {
-        beforeEach {
-            let container = AppFactory.create()
-            AppFactory.mockRepositories(container)
-            AppFactory.mockControllers(container)
-            self.homePresenter = container.resolve(HomePresenter.self)
-            self.homeView = container.resolve(HomeViewDelegate.self)! as? HomeViewControllerFake
-        }
+    override func setUp() async throws {
+        let container = AppFactory.create()
+        AppFactory.mockRepositories(container)
+        AppFactory.mockControllers(container)
+        homePresenter = container.resolve(HomePresenter.self)
+        homeView = container.resolve(HomeViewDelegate.self)! as? HomeViewControllerFake
+    }
 
-        it("loads trending movies into the view") {
-            self.homePresenter.loadTrendingMovies()
+    func test_loads_trending_movies_into_the_view() throws {
+        homePresenter.loadTrendingMovies()
 
-            expect(self.homeView.trendingMovies).to(haveCount(1))
-        }
+        expect(self.homeView.trendingMovies).to(haveCount(1))
+    }
 
-        it("loads trending tv shows into the view") {
-            self.homePresenter.loadTrendingTVShows()
+    func test_loads_trending_tv_shows_into_the_view() {
+        homePresenter.loadTrendingTVShows()
 
-            expect(self.homeView.trendingTVShows).to(haveCount(1))
-        }
+        expect(self.homeView.trendingTVShows).to(haveCount(1))
+    }
 
-        it("loads popular movies into the view") {
-            self.homePresenter.loadPopularMovies()
+    func test_loads_popular_movies_into_the_view() {
+        homePresenter.loadPopularMovies()
 
-            expect(self.homeView.popularMovies).to(haveCount(1))
-        }
+        expect(self.homeView.popularMovies).to(haveCount(1))
     }
 }

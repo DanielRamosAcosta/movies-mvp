@@ -9,10 +9,6 @@ import Nimble
 import XCTest
 
 class CineniUITests: XCTestCase {
-    override func setUpWithError() throws {
-        continueAfterFailure = false
-    }
-
     func test_shows_the_movie_list() throws {
         let app = XCUIApplication()
         app.launchArguments = ["-UITests"]

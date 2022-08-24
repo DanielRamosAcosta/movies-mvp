@@ -6,34 +6,27 @@
 //
 
 @testable import Cineni
-import Foundation
 import Nimble
-import Quick
+import XCTest
 
-class MovieRepositoryApiSpec: QuickSpec {
-    override func spec() {
-        it("gets trending movies") {
-            let movieRepositoryApi = MovieRepositoryApi()
+class MovieRepositoryApiTests: XCTestCase {
+    var movieRepositoryApi = MovieRepositoryApi()
 
-            let movies = try self.awaitPublisher(movieRepositoryApi.getTrendingMovies())
+    func test_gets_trending_movies() throws {
+        let movies = try awaitPublisher(movieRepositoryApi.getTrendingMovies())
 
-            expect(movies).to(haveCount(20))
-        }
+        expect(movies).to(haveCount(20))
+    }
 
-        it("gets trending tv shows") {
-            let movieRepositoryApi = MovieRepositoryApi()
+    func test_gets_trending_tv_shows() throws {
+        let tvShows = try awaitPublisher(movieRepositoryApi.getTrendingTVShows())
 
-            let tvShows = try self.awaitPublisher(movieRepositoryApi.getTrendingTVShows())
+        expect(tvShows).to(haveCount(20))
+    }
 
-            expect(tvShows).to(haveCount(20))
-        }
+    func test_gets_popular_movies() throws {
+        let movies = try awaitPublisher(movieRepositoryApi.getPopularMovies())
 
-        it("gets popular movies") {
-            let movieRepositoryApi = MovieRepositoryApi()
-
-            let movies = try self.awaitPublisher(movieRepositoryApi.getPopularMovies())
-
-            expect(movies).to(haveCount(20))
-        }
+        expect(movies).to(haveCount(20))
     }
 }
