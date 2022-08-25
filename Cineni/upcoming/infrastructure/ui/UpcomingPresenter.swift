@@ -11,26 +11,22 @@ import Swinject
 
 class UpcomingPresenter {
     private weak var view: UpcomingViewDelegate?
-    let homeUseCases: HomeUseCases
+    let useCases: UpcomingUseCases
     private var cancellable1: AnyCancellable?
-    private var cancellable2: AnyCancellable?
-    private var cancellable3: AnyCancellable?
-    private var cancellable4: AnyCancellable?
-    private var cancellable5: AnyCancellable?
 
     public static func build(_ resolver: Resolver) -> UpcomingPresenter {
         let delegate = resolver.resolve(UpcomingViewDelegate.self)!
-        let homeUseCases = resolver.resolve(HomeUseCases.self)!
-        return UpcomingPresenter(delegate: delegate, homeUseCases: homeUseCases)
+        let useCases = resolver.resolve(UpcomingUseCases.self)!
+        return UpcomingPresenter(delegate: delegate, useCases: useCases)
     }
 
-    init(delegate: UpcomingViewDelegate?, homeUseCases: HomeUseCases) {
+    init(delegate: UpcomingViewDelegate?, useCases: UpcomingUseCases) {
         view = delegate
-        self.homeUseCases = homeUseCases
+        self.useCases = useCases
     }
 
     func loadUpcomingMovies() {
-        cancellable4 = homeUseCases.getUpcomingMovies()
+        cancellable1 = useCases.getUpcomingMovies()
             .catch { error -> AnyPublisher<[Movie], Never> in
                 print("This is the error \(error)")
                 return Empty(completeImmediately: true).eraseToAnyPublisher()
