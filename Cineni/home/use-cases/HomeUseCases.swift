@@ -35,4 +35,8 @@ class HomeUseCases {
     func getUpcomingMovies() -> AnyPublisher<[Movie], Error> {
         return movieRepository.getUpcomingMovies()
     }
+
+    func getTopRatedMovies() -> AnyPublisher<[Movie], Error> {
+        return movieRepository.getTopRatedMovies()
+    }
 }

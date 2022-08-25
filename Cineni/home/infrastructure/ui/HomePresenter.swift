@@ -16,6 +16,7 @@ class HomePresenter {
     private var cancellable2: AnyCancellable?
     private var cancellable3: AnyCancellable?
     private var cancellable4: AnyCancellable?
+    private var cancellable5: AnyCancellable?
 
     public static func build(_ resolver: Resolver) -> HomePresenter {
         let delegate = resolver.resolve(HomeViewDelegate.self)!
@@ -28,7 +29,7 @@ class HomePresenter {
         self.homeUseCases = homeUseCases
     }
 
-    public func loadTrendingMovies() {
+    func loadTrendingMovies() {
         cancellable1 = homeUseCases.getTrendingMovies()
             .catch { error -> AnyPublisher<[Movie], Never> in
                 print("This is the error \(error)")
@@ -41,7 +42,7 @@ class HomePresenter {
             )
     }
 
-    public func loadTrendingTVShows() {
+    func loadTrendingTVShows() {
         cancellable2 = homeUseCases.getTrendingTVShows()
             .catch { error -> AnyPublisher<[TVShow], Never> in
                 print("This is the error \(error)")
@@ -54,7 +55,7 @@ class HomePresenter {
             )
     }
 
-    public func loadPopularMovies() {
+    func loadPopularMovies() {
         cancellable3 = homeUseCases.getPopularMovies()
             .catch { error -> AnyPublisher<[Movie], Never> in
                 print("This is the error \(error)")
@@ -67,7 +68,7 @@ class HomePresenter {
             )
     }
 
-    public func loadUpcomingMovies() {
+    func loadUpcomingMovies() {
         cancellable4 = homeUseCases.getUpcomingMovies()
             .catch { error -> AnyPublisher<[Movie], Never> in
                 print("This is the error \(error)")
@@ -76,6 +77,19 @@ class HomePresenter {
             .sink(
                 receiveValue: { [weak self] movies in
                     self?.homeView?.presentUpcomingMovies(movies)
+                }
+            )
+    }
+
+    func loadTopRatedMovies() {
+        cancellable5 = homeUseCases.getTopRatedMovies()
+            .catch { error -> AnyPublisher<[Movie], Never> in
+                print("This is the error \(error)")
+                return Empty(completeImmediately: true).eraseToAnyPublisher()
+            }
+            .sink(
+                receiveValue: { [weak self] movies in
+                    self?.homeView?.presentTopRatedMovies(movies)
                 }
             )
     }

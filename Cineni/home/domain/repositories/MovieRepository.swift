@@ -14,6 +14,7 @@ protocol MovieRepository {
     func getTrendingTVShows() -> AnyPublisher<[TVShow], Error>
     func getPopularMovies() -> AnyPublisher<[Movie], Error>
     func getUpcomingMovies() -> AnyPublisher<[Movie], Error>
+    func getTopRatedMovies() -> AnyPublisher<[Movie], Error>
 }
 
 enum MovieRepositoryError: Error {

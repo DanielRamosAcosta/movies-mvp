@@ -12,4 +12,5 @@ protocol HomeViewDelegate: AnyObject {
     func presentTrendingTVShows(_ tvShows: [TVShow])
     func presentPopularMovies(_ movies: [Movie])
     func presentUpcomingMovies(_ movies: [Movie])
+    func presentTopRatedMovies(_ movies: [Movie])
 }

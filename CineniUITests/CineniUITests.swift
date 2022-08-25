@@ -17,5 +17,6 @@ class CineniUITests: XCTestCase {
         expect(app).to(haveImageWithAlt(sheHulk.title))
         expect(app).to(haveImageWithAlt(dragonBall.title))
         expect(app).to(haveImageWithAlt(theBlackPhone.title))
+        expect(app).to(haveImageWithAlt(theShawshankRedemption.title))
     }
 }

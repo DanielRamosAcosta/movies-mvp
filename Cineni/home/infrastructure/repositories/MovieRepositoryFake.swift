@@ -50,6 +50,12 @@ class MovieRepositoryFake: MovieRepository {
         return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 
+    func getTopRatedMovies() -> AnyPublisher<[Movie], Error> {
+        let movies = [Movie(title: theShawshankRedemption.title, posterPath: theShawshankRedemption.posterPath)]
+
+        return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
+
     private let simulateErrors: Bool
 
     init(simulateErrors: Bool = false) {

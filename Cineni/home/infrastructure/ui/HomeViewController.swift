@@ -68,6 +68,7 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         presenter?.loadTrendingTVShows()
         presenter?.loadPopularMovies()
         presenter?.loadUpcomingMovies()
+        presenter?.loadTopRatedMovies()
     }
 
     func presentTrendingMovies(_ trendingMovies: [Movie]) {
@@ -96,6 +97,14 @@ class HomeViewController: UIViewController, HomeViewDelegate {
 
     func presentUpcomingMovies(_ movies: [Movie]) {
         upcomingMovies = movies
+
+        DispatchQueue.main.async {
+            self.homeFeedTable.reloadData()
+        }
+    }
+
+    func presentTopRatedMovies(_ movies: [Movie]) {
+        topRatedMovies = movies
 
         DispatchQueue.main.async {
             self.homeFeedTable.reloadData()

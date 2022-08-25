@@ -35,4 +35,10 @@ class MovieRepositoryApiTests: XCTestCase {
 
         expect(movies).to(haveCount(20))
     }
+
+    func test_gets_top_rated_movies() throws {
+        let movies = try awaitPublisher(movieRepositoryApi.getTopRatedMovies())
+
+        expect(movies).to(haveCount(20))
+    }
 }

@@ -48,6 +48,13 @@ class HomePresenterTests: XCTestCase {
         homeView.expectToHaveUpcomingMoviesCount(1)
         homeView.expectLastUpcomingMovieToBe(theBlackPhone.title)
     }
+
+    func test_loads_top_rated_movies_into_the_view() {
+        homePresenter.loadTopRatedMovies()
+
+        homeView.expectToHaveTopRatedMoviesCount(1)
+        homeView.expectLastTopRatedMovieToBe(theShawshankRedemption.title)
+    }
 }
 
 extension HomeViewControllerFake {
@@ -81,5 +88,13 @@ extension HomeViewControllerFake {
 
     func expectLastUpcomingMovieToBe(_ title: String) {
         expect(self.upcomingMovies[0].getTitle()).to(equal(title))
+    }
+
+    func expectToHaveTopRatedMoviesCount(_ n: Int) {
+        expect(self.topRatedMovies).to(haveCount(n))
+    }
+
+    func expectLastTopRatedMovieToBe(_ title: String) {
+        expect(self.topRatedMovies[0].getTitle()).to(equal(title))
     }
 }
