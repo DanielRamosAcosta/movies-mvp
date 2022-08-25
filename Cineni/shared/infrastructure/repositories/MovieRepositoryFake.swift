@@ -23,7 +23,7 @@ class MovieRepositoryFake: MovieRepository {
             .eraseToAnyPublisher()
     }
 
-    func getPopularMovies() -> AnyPublisher<[Movie], Error> {
+    func getPopular() -> AnyPublisher<[Movie], Error> {
         let movies: [Movie] = [
             Movie(title: dragonBall.title, posterPath: dragonBall.posterPath),
         ]
@@ -31,7 +31,7 @@ class MovieRepositoryFake: MovieRepository {
         return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 
-    func getUpcomingMovies() -> AnyPublisher<[Movie], Error> {
+    func getUpcoming() -> AnyPublisher<[Movie], Error> {
         let movies = [
             Movie(title: theBlackPhone.title, posterPath: theBlackPhone.posterPath),
         ]

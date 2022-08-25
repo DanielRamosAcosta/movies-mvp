@@ -19,13 +19,13 @@ class MovieRepositoryApiTests: XCTestCase {
     }
 
     func test_gets_popular_movies() throws {
-        let movies = try awaitPublisher(movieRepositoryApi.getPopularMovies())
+        let movies = try awaitPublisher(movieRepositoryApi.getPopular())
 
         expect(movies).to(haveCount(20))
     }
 
     func test_gets_upcoming_movies() throws {
-        let movies = try awaitPublisher(movieRepositoryApi.getUpcomingMovies())
+        let movies = try awaitPublisher(movieRepositoryApi.getUpcoming())
 
         expect(movies).to(haveCount(20))
     }

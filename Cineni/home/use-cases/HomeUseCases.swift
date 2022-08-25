@@ -34,11 +34,11 @@ class HomeUseCases {
     }
 
     func getPopularMovies() -> AnyPublisher<[Movie], Error> {
-        return movieRepository.getPopularMovies()
+        return movieRepository.getPopular()
     }
 
     func getUpcomingMovies() -> AnyPublisher<[Movie], Error> {
-        return movieRepository.getUpcomingMovies()
+        return movieRepository.getUpcoming()
     }
 
     func getTopRatedMovies() -> AnyPublisher<[Movie], Error> {

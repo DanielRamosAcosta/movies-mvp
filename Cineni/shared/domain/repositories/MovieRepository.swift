@@ -10,8 +10,8 @@ import Swinject
 
 protocol MovieRepository {
     func getTrending() -> AnyPublisher<[Movie], Error>
-    func getPopularMovies() -> AnyPublisher<[Movie], Error>
-    func getUpcomingMovies() -> AnyPublisher<[Movie], Error>
+    func getPopular() -> AnyPublisher<[Movie], Error>
+    func getUpcoming() -> AnyPublisher<[Movie], Error>
     func getTopRated() -> AnyPublisher<[Movie], Error>
 }
 

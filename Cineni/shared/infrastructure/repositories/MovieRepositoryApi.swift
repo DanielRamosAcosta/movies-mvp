@@ -22,14 +22,14 @@ class MovieRepositoryApi: MovieRepository {
             .eraseToAnyPublisher()
     }
 
-    func getPopularMovies() -> AnyPublisher<[Movie], Error> {
+    func getPopular() -> AnyPublisher<[Movie], Error> {
         return client.getPopularMovies()
             .map { $0.results }
             .map { $0.map { Movie(title: $0.title, posterPath: $0.posterPath) } }
             .eraseToAnyPublisher()
     }
 
-    func getUpcomingMovies() -> AnyPublisher<[Movie], Error> {
+    func getUpcoming() -> AnyPublisher<[Movie], Error> {
         return client.getUpcomingMovies()
             .map { $0.results }
             .map { $0.map { Movie(title: $0.title, posterPath: $0.posterPath) } }
