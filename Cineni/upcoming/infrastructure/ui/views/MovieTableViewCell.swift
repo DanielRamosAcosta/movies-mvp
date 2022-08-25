@@ -23,14 +23,17 @@ class MovieTableViewCell: UITableViewCell {
 
     private let moviePoster: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
         return imageView
     }()
 
     private let movieTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.lineBreakMode = .byTruncatingTail
+        label.adjustsFontSizeToFitWidth = false
         return label
     }()
 
@@ -49,20 +52,22 @@ class MovieTableViewCell: UITableViewCell {
 
     private func applyConstraints() {
         let moviePosterConstraints = [
-            moviePoster.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            moviePoster.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             moviePoster.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             moviePoster.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            moviePoster.widthAnchor.constraint(equalToConstant: 100),
+            moviePoster.widthAnchor.constraint(equalToConstant: 65),
         ]
 
         let movieTitleLabelConstraints = [
             movieTitleLabel.leadingAnchor.constraint(equalTo: moviePoster.trailingAnchor, constant: 20),
+            movieTitleLabel.trailingAnchor.constraint(equalTo: playMovieButton.leadingAnchor, constant: -20),
             movieTitleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ]
 
         let playMovieButton = [
             playMovieButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             playMovieButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            playMovieButton.widthAnchor.constraint(equalTo: playMovieButton.heightAnchor),
         ]
 
         NSLayoutConstraint.activate(moviePosterConstraints)
