@@ -11,21 +11,26 @@ import Swinject
 
 class HomeUseCases {
     private let movieRepository: MovieRepository
+    private let tvShowRepository: TVShowRepository
 
     public static func build(_ resolver: Resolver) -> HomeUseCases {
-        return HomeUseCases(resolver.resolve(MovieRepository.self)!)
+        return HomeUseCases(
+            movieRepository: resolver.resolve(MovieRepository.self)!,
+            tvShowRepository: resolver.resolve(TVShowRepository.self)!
+        )
     }
 
-    init(_ movieRepository: MovieRepository) {
+    init(movieRepository: MovieRepository, tvShowRepository: TVShowRepository) {
         self.movieRepository = movieRepository
+        self.tvShowRepository = tvShowRepository
     }
 
     func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
-        return movieRepository.getTrendingMovies()
+        return movieRepository.getTrending()
     }
 
     func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
-        return movieRepository.getTrendingTVShows()
+        return tvShowRepository.getTrendingTVShows()
     }
 
     func getPopularMovies() -> AnyPublisher<[Movie], Error> {
@@ -37,6 +42,6 @@ class HomeUseCases {
     }
 
     func getTopRatedMovies() -> AnyPublisher<[Movie], Error> {
-        return movieRepository.getTopRatedMovies()
+        return movieRepository.getTopRated()
     }
 }

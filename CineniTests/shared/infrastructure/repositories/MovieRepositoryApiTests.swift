@@ -13,15 +13,9 @@ class MovieRepositoryApiTests: XCTestCase {
     var movieRepositoryApi = MovieRepositoryApi()
 
     func test_gets_trending_movies() throws {
-        let movies = try awaitPublisher(movieRepositoryApi.getTrendingMovies())
+        let movies = try awaitPublisher(movieRepositoryApi.getTrending())
 
         expect(movies).to(haveCount(20))
-    }
-
-    func test_gets_trending_tv_shows() throws {
-        let tvShows = try awaitPublisher(movieRepositoryApi.getTrendingTVShows())
-
-        expect(tvShows).to(haveCount(20))
     }
 
     func test_gets_popular_movies() throws {
@@ -37,7 +31,7 @@ class MovieRepositoryApiTests: XCTestCase {
     }
 
     func test_gets_top_rated_movies() throws {
-        let movies = try awaitPublisher(movieRepositoryApi.getTopRatedMovies())
+        let movies = try awaitPublisher(movieRepositoryApi.getTopRated())
 
         expect(movies).to(haveCount(20))
     }

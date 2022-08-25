@@ -14,8 +14,10 @@ class AppFactory {
 
         container.register(MainTabBarViewController.self, factory: MainTabBarViewController.build)
 
-        container.register(HomeUseCases.self, factory: HomeUseCases.build)
         container.register(MovieRepository.self, factory: MovieRepositoryApi.build)
+        container.register(TVShowRepository.self, factory: TVShowRepositoryApi.build)
+
+        container.register(HomeUseCases.self, factory: HomeUseCases.build)
         container
             .register(HomeViewController.self, factory: HomeViewController.build)
             .initCompleted(HomeViewController.initCompleted)
@@ -46,6 +48,7 @@ class AppFactory {
 
     public static func mockRepositories(_ container: Container) {
         container.register(MovieRepository.self, factory: MovieRepositoryFake.build)
+        container.register(TVShowRepository.self, factory: TVShowRepositoryFake.build)
     }
 
     public static func mockControllers(_ container: Container) {

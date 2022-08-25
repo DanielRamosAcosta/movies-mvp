@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Foundation
 import Swinject
 
 class MovieRepositoryFake: MovieRepository {
@@ -14,22 +13,12 @@ class MovieRepositoryFake: MovieRepository {
         return MovieRepositoryFake()
     }
 
-    func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
+    func getTrending() -> AnyPublisher<[Movie], Error> {
         let movies: [Movie] = [
             Movie(title: vengeance.title, posterPath: vengeance.posterPath),
         ]
 
         return Just(movies)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
-
-    func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
-        let tvShows: [TVShow] = [
-            TVShow(title: sheHulk.title, posterPath: sheHulk.posterPath),
-        ]
-
-        return Just(tvShows)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
@@ -50,15 +39,9 @@ class MovieRepositoryFake: MovieRepository {
         return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 
-    func getTopRatedMovies() -> AnyPublisher<[Movie], Error> {
+    func getTopRated() -> AnyPublisher<[Movie], Error> {
         let movies = [Movie(title: theShawshankRedemption.title, posterPath: theShawshankRedemption.posterPath)]
 
         return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
-    }
-
-    private let simulateErrors: Bool
-
-    init(simulateErrors: Bool = false) {
-        self.simulateErrors = simulateErrors
     }
 }

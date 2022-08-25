@@ -6,15 +6,13 @@
 //
 
 import Combine
-import Foundation
 import Swinject
 
 protocol MovieRepository {
-    func getTrendingMovies() -> AnyPublisher<[Movie], Error>
-    func getTrendingTVShows() -> AnyPublisher<[TVShow], Error>
+    func getTrending() -> AnyPublisher<[Movie], Error>
     func getPopularMovies() -> AnyPublisher<[Movie], Error>
     func getUpcomingMovies() -> AnyPublisher<[Movie], Error>
-    func getTopRatedMovies() -> AnyPublisher<[Movie], Error>
+    func getTopRated() -> AnyPublisher<[Movie], Error>
 }
 
 enum MovieRepositoryError: Error {

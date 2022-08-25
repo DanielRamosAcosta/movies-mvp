@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Foundation
 import Swinject
 
 class MovieRepositoryApi: MovieRepository {
@@ -16,17 +15,10 @@ class MovieRepositoryApi: MovieRepository {
         return MovieRepositoryApi()
     }
 
-    func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
+    func getTrending() -> AnyPublisher<[Movie], Error> {
         return client.getTrendingMovies()
             .map { $0.results }
             .map { $0.map { Movie(title: $0.title, posterPath: $0.posterPath) } }
-            .eraseToAnyPublisher()
-    }
-
-    func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
-        return client.getTrendingTVShows()
-            .map { $0.results }
-            .map { $0.map { TVShow(title: $0.name, posterPath: $0.posterPath) } }
             .eraseToAnyPublisher()
     }
 
@@ -44,7 +36,7 @@ class MovieRepositoryApi: MovieRepository {
             .eraseToAnyPublisher()
     }
 
-    func getTopRatedMovies() -> AnyPublisher<[Movie], Error> {
+    func getTopRated() -> AnyPublisher<[Movie], Error> {
         return client.getTopRatedMovies()
             .map { $0.results }
             .map { $0.map { Movie(title: $0.title, posterPath: $0.posterPath) } }
