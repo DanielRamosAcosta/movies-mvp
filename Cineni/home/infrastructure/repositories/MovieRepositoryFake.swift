@@ -16,7 +16,7 @@ class MovieRepositoryFake: MovieRepository {
 
     func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
         let movies: [Movie] = [
-            Movie(title: "Vengeance", posterPath: "/pdQFGAX68LWoiBqzXwZhMRaraC0.jpg"),
+            Movie(title: vengeance.title, posterPath: vengeance.posterPath),
         ]
 
         return Just(movies)
@@ -26,7 +26,7 @@ class MovieRepositoryFake: MovieRepository {
 
     func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
         let tvShows: [TVShow] = [
-            TVShow(title: "She-Hulk: Attorney at Law", posterPath: "/zNKVhijwhmkcMcgonCQ2yHLc7Ca.jpg"),
+            TVShow(title: sheHulk.title, posterPath: sheHulk.posterPath),
         ]
 
         return Just(tvShows)
@@ -36,7 +36,15 @@ class MovieRepositoryFake: MovieRepository {
 
     func getPopularMovies() -> AnyPublisher<[Movie], Error> {
         let movies: [Movie] = [
-            Movie(title: "Dragon Ball Super: Super Hero", posterPath: "/rugyJdeoJm7cSJL1q4jBpTNbxyU.jpg"),
+            Movie(title: dragonBall.title, posterPath: dragonBall.posterPath),
+        ]
+
+        return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
+
+    func getUpcomingMovies() -> AnyPublisher<[Movie], Error> {
+        let movies = [
+            Movie(title: theBlackPhone.title, posterPath: theBlackPhone.posterPath),
         ]
 
         return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()

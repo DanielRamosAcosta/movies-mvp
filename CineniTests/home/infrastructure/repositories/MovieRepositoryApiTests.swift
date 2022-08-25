@@ -29,4 +29,10 @@ class MovieRepositoryApiTests: XCTestCase {
 
         expect(movies).to(haveCount(20))
     }
+
+    func test_gets_upcoming_movies() throws {
+        let movies = try awaitPublisher(movieRepositoryApi.getUpcomingMovies())
+
+        expect(movies).to(haveCount(20))
+    }
 }

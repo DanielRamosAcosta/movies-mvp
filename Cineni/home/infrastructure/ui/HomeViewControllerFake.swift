@@ -12,6 +12,7 @@ class HomeViewControllerFake: HomeViewDelegate {
     public var trendingMovies: [Movie] = []
     public var trendingTVShows: [TVShow] = []
     public var popularMovies: [Movie] = []
+    public var upcomingMovies: [Movie] = []
 
     public static func build(_: Resolver) -> HomeViewControllerFake {
         return HomeViewControllerFake()
@@ -27,5 +28,9 @@ class HomeViewControllerFake: HomeViewDelegate {
 
     func presentPopularMovies(_ movies: [Movie]) {
         popularMovies = movies
+    }
+
+    func presentUpcomingMovies(_ movies: [Movie]) {
+        upcomingMovies = movies
     }
 }

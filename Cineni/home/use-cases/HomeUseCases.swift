@@ -20,15 +20,19 @@ class HomeUseCases {
         self.movieRepository = movieRepository
     }
 
-    public func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
+    func getTrendingMovies() -> AnyPublisher<[Movie], Error> {
         return movieRepository.getTrendingMovies()
     }
 
-    public func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
+    func getTrendingTVShows() -> AnyPublisher<[TVShow], Error> {
         return movieRepository.getTrendingTVShows()
     }
 
-    public func getPopularMovies() -> AnyPublisher<[Movie], Error> {
+    func getPopularMovies() -> AnyPublisher<[Movie], Error> {
         return movieRepository.getPopularMovies()
+    }
+
+    func getUpcomingMovies() -> AnyPublisher<[Movie], Error> {
+        return movieRepository.getUpcomingMovies()
     }
 }
