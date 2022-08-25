@@ -9,10 +9,35 @@ import Swinject
 import UIKit
 
 class MainTabBarViewController: UITabBarController {
-    let container: Container
+    let homeViewController: HomeViewController
+    let upcomingViewController: UpcomingViewController
+    let searchViewController: SearchViewController
+    let downloadsViewController: DownloadsViewController
 
-    init(_ container: Container) {
-        self.container = container
+    static func build(_ resolver: Resolver) -> MainTabBarViewController {
+        let homeViewController = resolver.resolve(HomeViewController.self)!
+        let upcomingViewController = resolver.resolve(UpcomingViewController.self)!
+        let searchViewController = resolver.resolve(SearchViewController.self)!
+        let downloadsViewController = resolver.resolve(DownloadsViewController.self)!
+
+        return MainTabBarViewController(
+            homeViewController: homeViewController,
+            upcomingViewController: upcomingViewController,
+            searchViewController: searchViewController,
+            downloadsViewController: downloadsViewController
+        )
+    }
+
+    init(
+        homeViewController: HomeViewController,
+        upcomingViewController: UpcomingViewController,
+        searchViewController: SearchViewController,
+        downloadsViewController: DownloadsViewController
+    ) {
+        self.homeViewController = homeViewController
+        self.upcomingViewController = upcomingViewController
+        self.searchViewController = searchViewController
+        self.downloadsViewController = downloadsViewController
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,10 +50,10 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .yellow
 
-        let vc1 = UINavigationController(rootViewController: container.resolve(HomeViewController.self)!)
-        let vc2 = UINavigationController(rootViewController: UpcomingViewController())
-        let vc3 = UINavigationController(rootViewController: SearchViewController())
-        let vc4 = UINavigationController(rootViewController: DownloadsViewController())
+        let vc1 = UINavigationController(rootViewController: homeViewController)
+        let vc2 = UINavigationController(rootViewController: upcomingViewController)
+        let vc3 = UINavigationController(rootViewController: searchViewController)
+        let vc4 = UINavigationController(rootViewController: downloadsViewController)
 
         vc1.tabBarItem.image = UIImage(systemName: "house")
         vc2.tabBarItem.image = UIImage(systemName: "play.circle")

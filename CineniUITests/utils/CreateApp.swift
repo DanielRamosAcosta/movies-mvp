@@ -7,9 +7,11 @@
 
 import XCTest
 
-func createApp() -> XCUIApplication {
+func createApp(withMockedRepositories: Bool = true) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-UITests"]
+    if withMockedRepositories {
+        app.launchArguments = ["-WithMockedRepositories"]
+    }
     app.launch()
     return app
 }

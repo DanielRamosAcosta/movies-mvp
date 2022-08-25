@@ -16,16 +16,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
+        let container = createContainer()
+
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = MainTabBarViewController(createContainer())
+        window?.rootViewController = container.resolve(MainTabBarViewController.self)!
         window?.makeKeyAndVisible()
     }
 
     private func createContainer() -> Container {
         let container = AppFactory.create()
 
-        if CommandLine.arguments.contains("-UITests") {
+        if CommandLine.arguments.contains("-WithMockedRepositories") {
             AppFactory.mockRepositories(container)
         }
 

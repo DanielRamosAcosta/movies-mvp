@@ -12,6 +12,8 @@ class AppFactory {
     public static func create() -> Container {
         let container = Container()
 
+        container.register(MainTabBarViewController.self, factory: MainTabBarViewController.build)
+
         container.register(HomeUseCases.self, factory: HomeUseCases.build)
         container.register(MovieRepository.self, factory: MovieRepositoryApi.build)
         container
@@ -19,6 +21,16 @@ class AppFactory {
             .initCompleted(HomeViewController.initCompleted)
         container.register(HomeViewDelegate.self) { resolver in resolver.resolve(HomeViewController.self)! }
         container.register(HomePresenter.self, factory: HomePresenter.build)
+
+        container
+            .register(UpcomingViewController.self, factory: UpcomingViewController.build)
+            .initCompleted(UpcomingViewController.initCompleted)
+        container.register(UpcomingViewDelegate.self) { resolver in resolver.resolve(UpcomingViewController.self)! }
+        container.register(UpcomingPresenter.self, factory: UpcomingPresenter.build)
+
+        container.register(SearchViewController.self, factory: SearchViewController.build)
+
+        container.register(DownloadsViewController.self, factory: DownloadsViewController.build)
 
         return container
     }
