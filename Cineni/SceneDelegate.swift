@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         if CommandLine.arguments.contains("-WithMockedRepositories") {
             AppFactory.mockRepositories(container)
+            AppFactory.mockServices(container)
         }
 
         return container

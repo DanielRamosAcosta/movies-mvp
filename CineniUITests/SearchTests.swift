@@ -13,7 +13,7 @@ class SearchTests: XCTestCase {
     func test_shows_top_search_by_default() throws {
         let app = createApp()
 
-        app.tabBars.buttons["Search"].tap()
+        app.tabBars.buttons["search"].tap()
 
         expect(app).to(haveText(vengeance.title))
         expect(app).to(haveImageWithAlt(vengeance.title))
@@ -26,7 +26,7 @@ class SearchTests: XCTestCase {
     func test_that_searchs_for_movies() throws {
         let app = createApp()
 
-        app.tabBars.buttons["Search"].tap()
+        app.tabBars.buttons["search"].tap()
         app.swipeDown()
         app.searchFields.firstMatch.tap()
         app.typeText(memento.title)

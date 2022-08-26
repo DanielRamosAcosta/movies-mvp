@@ -17,10 +17,10 @@ enum Sections: Int {
     case topRated = 4
 }
 
-class HomeViewController: UIViewController, HomeViewDelegate {
+class HomeViewController: UIViewController {
     let sectionTitles = [
-        "Trending Movies",
-        "Trending TV",
+        "trendingMovies",
+        "trendingTVShows",
         "Popular",
         "Upcoming Movies",
         "Top rated",
@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     private var topRatedMovies: [Movie] = []
 
     private var presenter: HomePresenter?
+    private var localizer: Localizer?
 
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -39,16 +40,13 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         return table
     }()
 
-    public func setPresenter(presenter: HomePresenter) {
-        self.presenter = presenter
-    }
-
     public static func build(_: Resolver) -> HomeViewController {
         return HomeViewController()
     }
 
     public static func initCompleted(_ resolver: Resolver, _ homeViewController: HomeViewController) {
-        homeViewController.setPresenter(presenter: resolver.resolve(HomePresenter.self)!)
+        homeViewController.setPresenter(resolver.resolve(HomePresenter.self)!)
+        homeViewController.setLocalizer(resolver.resolve(Localizer.self)!)
     }
 
     override func viewDidLoad() {
@@ -70,7 +68,38 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         presenter?.loadUpcomingMovies()
         presenter?.loadTopRatedMovies()
     }
+    
+    public func setPresenter(_ presenter: HomePresenter) {
+        self.presenter = presenter
+    }
+    
+    public func setLocalizer(_ localizer: Localizer) {
+        self.localizer = localizer
+    }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        homeFeedTable.frame = view.bounds
+    }
+
+    private func configureNavBar() {
+        let image = UIImage(named: "logo")?.withRenderingMode(.alwaysOriginal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: image,
+            landscapeImagePhone: image,
+            style: .done,
+            target: self,
+            action: nil
+        )
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil),
+        ]
+        navigationController?.navigationBar.tintColor = .white
+    }
+}
+
+extension HomeViewController: HomeViewDelegate {
     func presentTrendingMovies(_ trendingMovies: [Movie]) {
         self.trendingMovies = trendingMovies
 
@@ -109,27 +138,6 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         DispatchQueue.main.async {
             self.homeFeedTable.reloadData()
         }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        homeFeedTable.frame = view.bounds
-    }
-
-    private func configureNavBar() {
-        let image = UIImage(named: "logo")?.withRenderingMode(.alwaysOriginal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: image,
-            landscapeImagePhone: image,
-            style: .done,
-            target: self,
-            action: nil
-        )
-        navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
-            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil),
-        ]
-        navigationController?.navigationBar.tintColor = .white
     }
 }
 
@@ -185,6 +193,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section == 0) {
+            return localizer?.translate(.trendingMovies)
+        }
+        if (section == 1) {
+            return localizer?.translate(.trendingTvShows)
+        }
+        
         return sectionTitles[section]
     }
 

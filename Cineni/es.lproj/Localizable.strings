@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Cineni
+
+  Created by Daniel Ramos on 26/8/22.
+  
+*/
+"trendingMovies" = "Peliculas en tendencias";
+"trendingTVShows" = "Series en tendencia";
+"search" = "Buscar";

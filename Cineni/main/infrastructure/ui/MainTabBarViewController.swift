@@ -13,18 +13,21 @@ class MainTabBarViewController: UITabBarController {
     let upcomingViewController: UpcomingViewController
     let searchViewController: SearchViewController
     let downloadsViewController: DownloadsViewController
+    let localizer: Localizer
 
     static func build(_ resolver: Resolver) -> MainTabBarViewController {
         let homeViewController = resolver.resolve(HomeViewController.self)!
         let upcomingViewController = resolver.resolve(UpcomingViewController.self)!
         let searchViewController = resolver.resolve(SearchViewController.self)!
         let downloadsViewController = resolver.resolve(DownloadsViewController.self)!
+        let localizer = resolver.resolve(Localizer.self)!
 
         return MainTabBarViewController(
             homeViewController: homeViewController,
             upcomingViewController: upcomingViewController,
             searchViewController: searchViewController,
-            downloadsViewController: downloadsViewController
+            downloadsViewController: downloadsViewController,
+            localizer: localizer
         )
     }
 
@@ -32,12 +35,14 @@ class MainTabBarViewController: UITabBarController {
         homeViewController: HomeViewController,
         upcomingViewController: UpcomingViewController,
         searchViewController: SearchViewController,
-        downloadsViewController: DownloadsViewController
+        downloadsViewController: DownloadsViewController,
+        localizer: Localizer
     ) {
         self.homeViewController = homeViewController
         self.upcomingViewController = upcomingViewController
         self.searchViewController = searchViewController
         self.downloadsViewController = downloadsViewController
+        self.localizer = localizer
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -62,7 +67,7 @@ class MainTabBarViewController: UITabBarController {
 
         vc1.title = "Home"
         vc2.title = "Coming Soon"
-        vc3.title = "Search"
+        vc3.title = localizer.translate(.search)
         vc4.title = "Downloads"
 
         tabBar.tintColor = .label
