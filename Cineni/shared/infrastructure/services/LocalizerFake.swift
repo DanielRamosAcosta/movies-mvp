@@ -10,9 +10,8 @@ class LocalizerFake: Localizer {
     public static func build(_: Resolver) -> LocalizerFake {
         return LocalizerFake()
     }
-    
-    func translate(_ key: LocalKeys) -> String {        
+
+    func translate(_ key: LocalKeys) -> String {
         return LocalizerNative.toLocalKey(key)
     }
 }
-

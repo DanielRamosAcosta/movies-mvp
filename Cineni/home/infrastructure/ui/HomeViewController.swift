@@ -68,11 +68,11 @@ class HomeViewController: UIViewController {
         presenter?.loadUpcomingMovies()
         presenter?.loadTopRatedMovies()
     }
-    
+
     public func setPresenter(_ presenter: HomePresenter) {
         self.presenter = presenter
     }
-    
+
     public func setLocalizer(_ localizer: Localizer) {
         self.localizer = localizer
     }
@@ -193,13 +193,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0) {
+        if section == 0 {
             return localizer?.translate(.trendingMovies)
         }
-        if (section == 1) {
+        if section == 1 {
             return localizer?.translate(.trendingTvShows)
         }
-        
+
         return sectionTitles[section]
     }
 

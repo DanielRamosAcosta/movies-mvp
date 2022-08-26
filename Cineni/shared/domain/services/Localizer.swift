@@ -14,5 +14,5 @@ enum LocalKeys {
 }
 
 protocol Localizer {
-    func  translate(_ key: LocalKeys) -> String
+    func translate(_ key: LocalKeys) -> String
 }

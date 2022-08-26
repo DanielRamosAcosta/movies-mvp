@@ -13,7 +13,7 @@ class AppFactory {
         let container = Container()
 
         container.register(Localizer.self, factory: LocalizerNative.build)
-        
+
         container.register(MainTabBarViewController.self, factory: MainTabBarViewController.build)
 
         container.register(MovieRepository.self, factory: MovieRepositoryApi.build)
@@ -63,7 +63,7 @@ class AppFactory {
     public static func mockControllers(_ container: Container) {
         container.register(HomeViewDelegate.self, factory: HomeViewControllerFake.build).inObjectScope(.container)
     }
-    
+
     public static func mockServices(_ container: Container) {
         container.register(Localizer.self, factory: LocalizerFake.build).inObjectScope(.container)
     }
