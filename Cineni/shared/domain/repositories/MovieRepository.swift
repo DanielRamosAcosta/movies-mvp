@@ -13,6 +13,8 @@ protocol MovieRepository {
     func getPopular() -> AnyPublisher<[Movie], Error>
     func getUpcoming() -> AnyPublisher<[Movie], Error>
     func getTopRated() -> AnyPublisher<[Movie], Error>
+    func getTopSearched() -> AnyPublisher<[Movie], Error>
+    func search(query: String) -> AnyPublisher<[Movie], Error>
 }
 
 enum MovieRepositoryError: Error {

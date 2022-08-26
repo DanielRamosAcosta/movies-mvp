@@ -42,4 +42,15 @@ class MovieRepositoryApi: MovieRepository {
             .map { $0.map { Movie(title: $0.title, posterPath: $0.posterPath) } }
             .eraseToAnyPublisher()
     }
+
+    func getTopSearched() -> AnyPublisher<[Movie], Error> {
+        return getPopular()
+    }
+
+    func search(query: String) -> AnyPublisher<[Movie], Error> {
+        return client.searchMovies(query: query)
+            .map { $0.results }
+            .map { $0.map { Movie(title: $0.title, posterPath: $0.posterPath) } }
+            .eraseToAnyPublisher()
+    }
 }

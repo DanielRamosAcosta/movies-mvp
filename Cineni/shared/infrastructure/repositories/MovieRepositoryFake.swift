@@ -44,4 +44,33 @@ class MovieRepositoryFake: MovieRepository {
 
         return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
+
+    func getTopSearched() -> AnyPublisher<[Movie], Error> {
+        let movies = [
+            Movie(title: vengeance.title, posterPath: vengeance.posterPath),
+            Movie(title: dragonBall.title, posterPath: dragonBall.posterPath),
+            Movie(title: theBlackPhone.title, posterPath: theBlackPhone.posterPath),
+        ]
+
+        return Just(movies).setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
+
+    func search(query: String) -> AnyPublisher<[Movie], Error> {
+        let movies = [
+            vengeance,
+            dragonBall,
+            theBlackPhone,
+            memento,
+        ]
+
+        let result = movies
+            .filter { movie in
+                movie.title.contains(query)
+            }
+            .map { fixture in
+                Movie(title: fixture.title, posterPath: fixture.posterPath)
+            }
+
+        return Just(result).setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
 }

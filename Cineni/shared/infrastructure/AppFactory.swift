@@ -31,7 +31,12 @@ class AppFactory {
         container.register(UpcomingViewDelegate.self) { resolver in resolver.resolve(UpcomingViewController.self)! }
         container.register(UpcomingPresenter.self, factory: UpcomingPresenter.build)
 
-        container.register(SearchViewController.self, factory: SearchViewController.build)
+        container.register(SearchUseCases.self, factory: SearchUseCases.build)
+        container
+            .register(SearchViewController.self, factory: SearchViewController.build)
+            .initCompleted(SearchViewController.initCompleted)
+        container.register(SearchViewDelegate.self) { resolver in resolver.resolve(SearchViewController.self)! }
+        container.register(SearchPresenter.self, factory: SearchPresenter.build)
 
         container.register(DownloadsViewController.self, factory: DownloadsViewController.build)
 

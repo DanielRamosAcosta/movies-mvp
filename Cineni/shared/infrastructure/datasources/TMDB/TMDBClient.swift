@@ -69,6 +69,25 @@ class TMDBClient {
             .eraseToAnyPublisher()
     }
 
+    func searchMovies(query: String) -> AnyPublisher<TMDBPaginatedResponse<TMDBMoviePopular>, Error> {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.themoviedb.org"
+        components.path = "/3/search/movie"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Constants.apiKey),
+            URLQueryItem(name: "query", value: query),
+        ]
+        let url = components.url
+
+        return url
+            .publisher
+            .flatMap { URLSession.shared.dataTaskPublisher(for: $0) }
+            .tryMap(mapErrors)
+            .decode(type: TMDBPaginatedResponse.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+
     private func mapErrors(element: URLSession.DataTaskPublisher.Output) throws -> Data {
         guard let httpResponse = element.response as? HTTPURLResponse,
               httpResponse.statusCode == 200

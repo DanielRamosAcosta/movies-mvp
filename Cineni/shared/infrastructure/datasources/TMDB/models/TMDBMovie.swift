@@ -9,13 +9,13 @@ import Foundation
 
 struct TMDBMovie: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let id: Int
     let title: String
     let originalLanguage: String
     let originalTitle: String
     let overview: String
-    let posterPath: String
+    let posterPath: String?
     let mediaType: String
     let genreIds: [Int]
     let popularity: Double
@@ -46,13 +46,13 @@ struct TMDBMovie: Codable {
 
 struct TMDBMoviePopular: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let id: Int
     let title: String
     let originalLanguage: String
     let originalTitle: String
     let overview: String
-    let posterPath: String
+    let posterPath: String?
     let genreIds: [Int]
     let popularity: Double
     let releaseDate: String

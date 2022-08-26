@@ -22,3 +22,8 @@ let theShawshankRedemption = MovieFixture(
     title: "The Shawshank Redemption",
     posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
 )
+
+let memento = MovieFixture(
+    title: "Memento",
+    posterPath: "/yuNs09hvpHVU1cBTCAk9zxsL2oW.jpg"
+)

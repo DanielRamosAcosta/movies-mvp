@@ -35,4 +35,10 @@ class MovieRepositoryApiTests: XCTestCase {
 
         expect(movies).to(haveCount(20))
     }
+
+    func test_movies_search() throws {
+        let movies = try awaitPublisher(movieRepositoryApi.search(query: "Memento"))
+
+        expect(movies).to(haveCount(20))
+    }
 }
